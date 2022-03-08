@@ -68,21 +68,27 @@
         pitch: 0,
       });
 
-      
-
       map.on("load", () => {
-        
         map.on("click", (event) => {
           // If the user clicked on one of your markers, get its information.
-          const features = map.queryRenderedFeatures(event.point, {
-            layers: ['buildings'], // replace with your layer name
-          });
 
-          console.log(event.point);
-          if (!features.length) {
-            return;
-          }
-          const feature = features[0];
+          const width = 100;
+          const height = 100;
+          // const features = map.queryRenderedFeatures(event.point, {
+          //   layers: ["buildings"], // replace with your layer name
+          // });
+
+          const point = event.point;
+
+          const features = map.queryRenderedFeatures(
+            [
+              [point.x - width / 2, point.y - height / 2],
+              [point.x + width / 2, point.y + height / 2],
+            ],
+            { layers: ["buildings"] }
+          );
+
+          console.log(features[0].properties);
 
           // Code from the next step will go here.
         });
