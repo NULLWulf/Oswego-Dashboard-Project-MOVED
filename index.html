@@ -82,8 +82,7 @@
 
           const features = map.queryRenderedFeatures(
             [
-              [point.x - width / 2, point.y - height / 2],
-              [point.x + width / 2, point.y + height / 2],
+              point.x,point.y
             ],
             { layers: ["buildings"] }
           );
