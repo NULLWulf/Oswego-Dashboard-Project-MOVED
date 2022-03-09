@@ -11,14 +11,6 @@ const map = new mapboxgl.Map({
 
 map.on("load", () => {
   map.on("click", (event) => {
-    // If the user clicked on one of your markers, get its information.
-
-    const width = 100;
-    const height = 100;
-    // const features = map.queryRenderedFeatures(event.point, {
-    //   layers: ["buildings"], // replace with your layer name
-    // });
-
     const point = event.point;
 
     const features = map.queryRenderedFeatures([point.x, point.y], {
