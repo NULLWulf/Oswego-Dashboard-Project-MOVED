@@ -1,5 +1,4 @@
-mapboxgl.accessToken =
-  "pk.eyJ1IjoibmR3b2xmMTk5MSIsImEiOiJjbDA4aGppczcwM2kzM2pxdHZydmdsYm5yIn0.ZPuI0T1FxHGAJu_wklsSXg";
+mapboxgl.accessToken = "pk.eyJ1IjoibmR3b2xmMTk5MSIsImEiOiJjbDA4aGppczcwM2kzM2pxdHZydmdsYm5yIn0.ZPuI0T1FxHGAJu_wklsSXg";
 const map = new mapboxgl.Map({
   container: "map", // container ID
   style: "mapbox://styles/ndwolf1991/cl0ikst93000j15p45jdekxmf", // style URL
@@ -42,3 +41,5 @@ map.on("load", () => {
 
   map.on("mousemove", (e) => {});
 });
+
+
