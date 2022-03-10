@@ -30,6 +30,8 @@ function bondFeatures(bound, map, event) {
 map.on("load", () => {
   // On initial map load performs these functions
   map.addControl(new mapboxgl.NavigationControl()); // adds basioc control structure to document, can be further modified
+
+  console.log("Map Loaded");
 });
 
 map.on("click", (event) => {
@@ -62,4 +64,6 @@ map.on("mousemove", (event) => {
       event.lngLat.wrap()
     );
   }
+
+  console.log("Hello");
 });
