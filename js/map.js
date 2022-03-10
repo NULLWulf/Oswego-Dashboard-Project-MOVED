@@ -46,8 +46,8 @@ map.on("mousemove", (event) => {
   document.getElementById("building").innerHTML = JSON.stringify(
     features[0].properties.Name
   );
-  document.getElementById("geoloc").innerHTML = JSON.stringify(event.point);
-  document.getElementById("coords").innerHTML = JSON.stringify(
+  document.getElementById("coords").innerHTML = JSON.stringify(event.point);
+  document.getElementById("geoloc").innerHTML = JSON.stringify(
     event.lngLat.wrap()
   );
 });
