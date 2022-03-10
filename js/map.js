@@ -1,4 +1,5 @@
-mapboxgl.accessToken = "pk.eyJ1IjoibmR3b2xmMTk5MSIsImEiOiJjbDA4aGppczcwM2kzM2pxdHZydmdsYm5yIn0.ZPuI0T1FxHGAJu_wklsSXg";
+mapboxgl.accessToken =
+  "pk.eyJ1IjoibmR3b2xmMTk5MSIsImEiOiJjbDA4aGppczcwM2kzM2pxdHZydmdsYm5yIn0.ZPuI0T1FxHGAJu_wklsSXg";
 
 const map = new mapboxgl.Map({
   container: "map", // container ID
@@ -20,8 +21,11 @@ map.on("click", (event) => {
     layers: ["buildings"],
   });
 
-  console.log(features[0].properties);
-  window.alert(features[0].properties.Name);
+  // console.log(features[0].properties);
+  // window.alert(features[0].properties.Name);
+
+  location.href =
+    "https://www.oswego.edu/facilities-services/facilities-services-0";
 });
 
 map.on("mousemove", (e) => {
