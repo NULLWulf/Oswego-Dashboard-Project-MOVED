@@ -2,6 +2,8 @@ mapboxgl.accessToken =
   "pk.eyJ1IjoibmR3b2xmMTk5MSIsImEiOiJjbDA4aGppczcwM2kzM2pxdHZydmdsYm5yIn0.ZPuI0T1FxHGAJu_wklsSXg"; // public token, not able to make changes to map itself with it
 // only access style layer etc.
 
+const _bounds = 0.5;
+
 const map = new mapboxgl.Map({
   // creates Mapbox object
   container: "map", // container ID
@@ -15,7 +17,7 @@ const map = new mapboxgl.Map({
 function bondFeatures(bound, map, event) {
   // function to get data features underneath point when an event is passed through
   const bbox = [
-    // based off of pixel width to determine bounds for
+    // based off of pixel width to determine bounds
     [event.point.x - bound, event.point.y - bound],
     [event.point.x + bound, event.point.y + bound],
   ];
@@ -32,7 +34,7 @@ map.on("load", () => {
 
 map.on("click", (event) => {
   // more click events to come buttrently grabs features under point
-  const features = bondFeatures(3, map, event);
+  const features = bondFeatures(_bounds, map, event);
 
   console.log(features[0].properties);
   window.alert(features[0].properties.Name); // displays DOM pop up of prperty name, will be eventually set to that click through do things like redirects, open panels etc
@@ -41,7 +43,7 @@ map.on("click", (event) => {
 map.on("mousemove", (event) => {
   // tracks geoloc respective of map, coordinations repsective of where map is framed and building name if applicable.
   // currently does not reset upon moving off of a building
-  const features = bondFeatures(3, map, event);
+  const features = bondFeatures(_bounds, map, event);
 
   document.getElementById("building").innerHTML = JSON.stringify(
     features[0].properties.Name
