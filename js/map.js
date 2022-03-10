@@ -22,6 +22,8 @@ map.on("load", () => {
     // Code from the next step will go here.
   });
 
+  map.addControl(new mapboxgl.NavigationControl());
+
   map.on("mousemove", (e) => {
     const point = e.point;
     const features = map.queryRenderedFeatures([point.x, point.y], {
