@@ -45,11 +45,21 @@ map.on("mousemove", (event) => {
   // currently does not reset upon moving off of a building
   const features = bondFeatures(_bounds, map, event);
 
-  document.getElementById("building").innerHTML = JSON.stringify(
-    features[0].properties.Name
-  );
-  document.getElementById("coords").innerHTML = JSON.stringify(event.point);
-  document.getElementById("geoloc").innerHTML = JSON.stringify(
-    event.lngLat.wrap()
-  );
+  map.getCanvas().style.cursor = features.length ? "pointer" : "";
+
+  if (features.length) {
+    document.getElementById("building").innerHTML = JSON.stringify(
+      features[0].properties.Name
+    );
+    document.getElementById("coords").innerHTML = JSON.stringify(event.point);
+    document.getElementById("geoloc").innerHTML = JSON.stringify(
+      event.lngLat.wrap()
+    );
+  } else {
+    document.getElementById("building").innerHTML = "N/a";
+    document.getElementById("coords").innerHTML = JSON.stringify(event.point);
+    document.getElementById("geoloc").innerHTML = JSON.stringify(
+      event.lngLat.wrap()
+    );
+  }
 });
