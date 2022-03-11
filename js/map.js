@@ -40,9 +40,7 @@ map.on("click", (event) => {
 
   console.log(features[0].properties);
 
-    window.location.href = `https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}`;
-
-
+  window.location.href = `https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}`;
 });
 
 map.on("mousemove", (event) => {
@@ -50,11 +48,13 @@ map.on("mousemove", (event) => {
   // currently does not reset upon moving off of a building
   const features = bondFeatures(_bounds, map, event);
 
-  map.getCanvas().style.cursor = features.length ? "pointer" : "https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${}";
+  map.getCanvas().style.cursor = features.length
+    ? "pointer"
+    : "";
 
   if (features.length) {
     document.getElementById("building").innerHTML = JSON.stringify(
-      features[0].properties.Name
+      features[0].properties.name
     );
     document.getElementById("coords").innerHTML = JSON.stringify(event.point);
     document.getElementById("geoloc").innerHTML = JSON.stringify(
