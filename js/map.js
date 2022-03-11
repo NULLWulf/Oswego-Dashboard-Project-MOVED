@@ -39,7 +39,6 @@ map.on("click", (event) => {
   const features = bondFeatures(_bounds, map, event);
 
   console.log(features[0].properties);
-  // window.alert(features[0].properties.Name); // displays DOM pop up of prperty name, will be eventually set to that click through do things like redirects, open panels etc
 
   if (features.length > 0) {
     window.location.href = `https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}`;
