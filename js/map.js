@@ -40,9 +40,8 @@ map.on("click", (event) => {
 
   console.log(features[0].properties);
 
-  if (features.length > 0) {
     window.location.href = `https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}`;
-  }
+
 
 });
 
