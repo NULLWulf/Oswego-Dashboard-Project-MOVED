@@ -39,7 +39,12 @@ map.on("click", (event) => {
   const features = bondFeatures(_bounds, map, event);
 
   console.log(features[0].properties);
-  window.alert(features[0].properties.Name); // displays DOM pop up of prperty name, will be eventually set to that click through do things like redirects, open panels etc
+  // window.alert(features[0].properties.Name); // displays DOM pop up of prperty name, will be eventually set to that click through do things like redirects, open panels etc
+
+  if (features.length > 0) {
+    window.location.href = `https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}`;
+  }
+
 });
 
 map.on("mousemove", (event) => {
@@ -47,7 +52,7 @@ map.on("mousemove", (event) => {
   // currently does not reset upon moving off of a building
   const features = bondFeatures(_bounds, map, event);
 
-  map.getCanvas().style.cursor = features.length ? "pointer" : "";
+  map.getCanvas().style.cursor = features.length ? "pointer" : "https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${}";
 
   if (features.length) {
     document.getElementById("building").innerHTML = JSON.stringify(
