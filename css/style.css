@@ -38,3 +38,11 @@ body {
   background-color: #fff;
   border-radius: 3px;
 }
+
+img {
+  width: 250px;
+  height: auto;
+}
+
+.popup {
+}

@@ -71,10 +71,11 @@ map.on("click", "buildings", (event) => {
   new mapboxgl.Popup()
     .setLngLat(coordinates)
     .setHTML(
-      "<h2>" +
+      '<div id="popup" class="popup">' +
+        "<h2>" +
         features[0].properties.name +
         "</h2>" +
-        '<img src="/images/building-images/' +
+        '<img src="images/building-images/' +
         features[0].properties.buildingNo +
         '.jpg" alt="Image of ' +
         features[0].properties.name +
@@ -88,8 +89,10 @@ map.on("click", "buildings", (event) => {
         "</br>" +
         '<a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=' +
         features[0].properties.assetID + // pipes asset id through url redirect, pay mind to quotes for proper html parsing
-        '"target="_blank">AIM Asset View</a>' // first " closes href link
+        '"target="_blank">AIM Asset View</a>' + // first " closes href link
+        "</div>"
     )
+    .setMinWidth("300px")
     .addTo(map);
 });
 
