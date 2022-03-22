@@ -92,7 +92,8 @@ map.on("click", "buildings", (event) => {
         '"target="_blank">AIM Asset View</a>' + // first " closes href link
         "</div>"
     )
-    .setMinWidth("300px")
+    .addClassName("popups")
+    .setMaxWidth("none")
     .addTo(map);
 });
 
