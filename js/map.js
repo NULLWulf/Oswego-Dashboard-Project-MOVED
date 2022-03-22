@@ -74,6 +74,12 @@ map.on("click", "buildings", (event) => {
       "<h2>" +
         features[0].properties.name +
         "</h2>" +
+        '<img src="/images/building-images/' +
+        features[0].properties.buildingNo +
+        '.jpg" alt="Image of ' +
+        features[0].properties.name +
+        '"</img>' +
+        "<br>" +
         "<strong>Building No: </strong>" +
         features[0].properties.buildingNo +
         "</br>" +
