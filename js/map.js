@@ -80,7 +80,9 @@ map.on("click", "buildings", (event) => {
         "<strong>Ft<sup>2</sup>: </strong>" +
         features[0].properties.squareFt +
         "</br>" +
-        '<a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank">AIM Asset View</a>' // _blank not working?
+        '<a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=' +
+        features[0].properties.assetID + // pipes asset id through url redirect, pay mind to quotes for proper html parsing
+        '"target="_blank">AIM Asset View</a>' // first " closes href link
     )
     .addTo(map);
 });
