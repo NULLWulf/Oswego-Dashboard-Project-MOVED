@@ -1,0 +1,34 @@
+### Incorrect Geo-locations
+-Shady Shore Garage
+-Wilber Hall  (current location appears to be schoolhouse)
+-Sewage Pump Station-Seneca
+
+
+
+### Off Center Geo-locations
+-Lakeside Dining Hall
+-Park Hall
+-Townhouse G in village
+-numerous that just need to positoned in the middle
+of the building, can be adjusted from Mapbox studio
+
+
+### No pictures available from Oswego website
+-Convocation center
+-Lonis and Moreland (using Mackin Hall complex specific pictures)
+-Only have one picture for entire Village
+-Sewage Main Station Lift (28)
+
+### Missing building geometry on map
+-Rich Hall
+-Sheldon Hall
+-most of Lakeside Dining Hall
+-Press Box (82)
+-Townhouse H in the Village
+-One Room Schoolhouse
+
+### No data available
+One Room Schoolhouse
+
+
+https://www.oswego.edu/facilities-services/building-profiles
