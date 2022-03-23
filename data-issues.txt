@@ -2,8 +2,8 @@
 -Shady Shore Garage
 -Wilber Hall  (current location appears to be schoolhouse)
 -Sewage Pump Station-Seneca
-
-
+-Fallbrook Recreation Center
+-campus whole (probably just remove datapoint)
 
 ### Off Center Geo-locations
 -Lakeside Dining Hall
@@ -18,6 +18,9 @@ of the building, can be adjusted from Mapbox studio
 -Lonis and Moreland (using Mackin Hall complex specific pictures)
 -Only have one picture for entire Village
 -Sewage Main Station Lift (28)
+-Press Box
+-Rice creek garage
+
 
 ### Missing building geometry on map
 -Rich Hall
@@ -26,6 +29,9 @@ of the building, can be adjusted from Mapbox studio
 -Press Box (82)
 -Townhouse H in the Village
 -One Room Schoolhouse
+-most of Rich Hall
+-One Room School house
+
 
 ### No data available
 One Room Schoolhouse
