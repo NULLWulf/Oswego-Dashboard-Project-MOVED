@@ -1,19 +1,13 @@
 ### Incorrect Geo-locations
 
 ### Off Center Geo-locations
-
+-Park Hall
+-Shady Shore Garage
 
 ### No pictures available from Oswego website
--Lonis and Moreland (using Mackin Hall complex specific pictures)
 -Only have one picture for entire Village
--Sewage Main Station Lift (28)
--Press Box
--Rice creek garage
--One Room Schoolhouse
--Pole barn
 -Office of Business and Community Relations
 -Business resource center
--Shady Shore Garage
 -Campus Center Storge Bldg
 
 ### Missing building geometry on map
@@ -24,9 +18,7 @@
 -Townhouse H in the Village
 -most of Rich Hall
 
-
 ### Missing Data Points
-One Room Schoolhouse
 Campus Center Storge Bldg
 
 
