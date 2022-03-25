@@ -4,12 +4,17 @@
 
 
 ### No pictures available from Oswego website
--Convocation center
 -Lonis and Moreland (using Mackin Hall complex specific pictures)
 -Only have one picture for entire Village
 -Sewage Main Station Lift (28)
 -Press Box
 -Rice creek garage
+-One Room Schoolhouse
+-Pole barn
+-Office of Business and Community Relations
+-Business resource center
+-Shady Shore Garage
+-Campus Center Storge Bldg
 
 ### Missing building geometry on map
 -Rich Hall
@@ -17,13 +22,12 @@
 -most of Lakeside Dining Hall
 -Press Box (82)
 -Townhouse H in the Village
--One Room Schoolhouse
 -most of Rich Hall
--One Room School house
 
 
-### No data available
+### Missing Data Points
 One Room Schoolhouse
+Campus Center Storge Bldg
 
 
 https://www.oswego.edu/facilities-services/building-profiles
