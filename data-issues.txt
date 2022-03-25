@@ -1,25 +1,8 @@
-### Incorrect Geo-locations
-
-### Off Center Geo-locations
--Park Hall
--Shady Shore Garage
-
 ### No pictures available from Oswego website
 -Only have one picture for entire Village
 -Office of Business and Community Relations
 -Business resource center
 -Campus Center Storge Bldg
-
-### Missing building geometry on map
--Rich Hall
--Sheldon Hall
--most of Lakeside Dining Hall
--Press Box (82)
--Townhouse H in the Village
--most of Rich Hall
-
-### Missing Data Points
-Campus Center Storge Bldg
 
 
 https://www.oswego.edu/facilities-services/building-profiles
