@@ -1,19 +1,23 @@
-mapboxgl.accessToken =
+// mapboxgl.accessToken =
+//   "pk.eyJ1IjoibmR3b2xmMTk5MSIsImEiOiJjbDA4aGppczcwM2kzM2pxdHZydmdsYm5yIn0.ZPuI0T1FxHGAJu_wklsSXg"; // public token, not able to make changes to map itself with it
+// // only access style layer etc.
+
+mapboxgl.accessToken = // new style url
   "pk.eyJ1IjoibmR3b2xmMTk5MSIsImEiOiJjbDA4aGppczcwM2kzM2pxdHZydmdsYm5yIn0.ZPuI0T1FxHGAJu_wklsSXg"; // public token, not able to make changes to map itself with it
 // only access style layer etc.
-
 
 const _bounds = 0.5;
 
 const map = new mapboxgl.Map({
   // creates Mapbox object
   container: "map", // container ID
-  style: "mapbox://styles/ndwolf1991/cl0ikst93000j15p45jdekxmf", // style URL
+  // style: "mapbox://styles/ndwolf1991/cl0ikst93000j15p45jdekxmf", // style URL
+  style: "mapbox://styles/ndwolf1991/cl1f5gcur004t15mf6m1dt47j", // new style url
   center: [-76.543134, 43.453054], // starting position [lng, lat]
   zoom: 16.02, // initial zoom start
   bearing: -37.25, // slightly off north to show majority of campus
   pitch: 0, // directly overhead
-})
+});
 
 function bondFeatures(bound, map, event) {
   // function to get data features underneath point when an event is passed through
@@ -98,9 +102,7 @@ map.on("mouseleave", "buildings", () => {
   map.getCanvas().style.cursor = "";
 });
 
-map.addControl(
-  new mapboxgl.FullscreenControl(),
-);
+map.addControl(new mapboxgl.FullscreenControl());
 
 map.addControl(
   new mapboxgl.GeolocateControl({
