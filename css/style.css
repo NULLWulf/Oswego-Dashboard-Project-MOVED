@@ -40,5 +40,9 @@ body {
 }
 
 img {
-  width: 400px;
+  width: 95%;
+}
+
+#popup{
+  max-width: 300px;
 }
