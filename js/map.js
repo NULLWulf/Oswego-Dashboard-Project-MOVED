@@ -14,7 +14,7 @@ const map = new mapboxgl.Map({
   // style: "mapbox://styles/ndwolf1991/cl0ikst93000j15p45jdekxmf", // style URL
   style: "mapbox://styles/ndwolf1991/cl1f5gcur004t15mf6m1dt47j", // new style url
   center: [-76.543134, 43.453054], // starting position [lng, lat]
-  zoom: 16.02, // initial zoom start
+  zoom: 16, // initial zoom start
   bearing: -37.25, // slightly off north to show majority of campus
   pitch: 0, // directly overhead
 });
