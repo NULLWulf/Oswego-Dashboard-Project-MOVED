@@ -39,27 +39,27 @@ map.on("load", () => {
   console.log("Map Loaded");
 });
 
-map.on("mousemove", (event) => {
-  // tracks geoloc respective of map, coordinations repsective of where map is framed and building name if applicable.
-  // currently does not reset upon moving off of a building
-  const features = bondFeatures(_bounds, map, event);
+// map.on("mousemove", (event) => {
+//   // tracks geoloc respective of map, coordinations repsective of where map is framed and building name if applicable.
+//   // currently does not reset upon moving off of a building
+//   const features = bondFeatures(_bounds, map, event);
 
-  if (features.length) {
-    document.getElementById("building").innerHTML = JSON.stringify(
-      features[0].properties.name
-    );
-    document.getElementById("coords").innerHTML = JSON.stringify(event.point);
-    document.getElementById("geoloc").innerHTML = JSON.stringify(
-      event.lngLat.wrap()
-    );
-  } else {
-    document.getElementById("building").innerHTML = "N/a";
-    document.getElementById("coords").innerHTML = JSON.stringify(event.point);
-    document.getElementById("geoloc").innerHTML = JSON.stringify(
-      event.lngLat.wrap()
-    );
-  }
-});
+//   if (features.length) {
+//     document.getElementById("building").innerHTML = JSON.stringify(
+//       features[0].properties.name
+//     );
+//     document.getElementById("coords").innerHTML = JSON.stringify(event.point);
+//     document.getElementById("geoloc").innerHTML = JSON.stringify(
+//       event.lngLat.wrap()
+//     );
+//   } else {
+//     document.getElementById("building").innerHTML = "N/a";
+//     document.getElementById("coords").innerHTML = JSON.stringify(event.point);
+//     document.getElementById("geoloc").innerHTML = JSON.stringify(
+//       event.lngLat.wrap()
+//     );
+//   }
+// });
 
 map.on("click", "buildings", (event) => {
   // Copy coordinates array.

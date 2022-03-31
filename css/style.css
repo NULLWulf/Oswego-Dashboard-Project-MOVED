@@ -25,6 +25,7 @@ body {
   width: 100%;
 }
 
+
 .info-panel {
   position: absolute;
   font-family: sans-serif;
@@ -49,4 +50,13 @@ img {
 
 #popup{
   max-width: 300px;
+}
+
+#fs-logo{
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    width: 7.5%;
 }
