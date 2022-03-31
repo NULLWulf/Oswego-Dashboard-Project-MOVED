@@ -96,3 +96,5 @@ map.on("mouseenter", "buildings", () => {
 map.on("mouseleave", "buildings", () => {
   map.getCanvas().style.cursor = "";
 });
+
+map.addControl(new mapboxgl.FullscreenControl());
