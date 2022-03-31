@@ -41,6 +41,10 @@ body {
 
 img {
   width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 #popup{
