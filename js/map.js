@@ -1,7 +1,3 @@
-// mapboxgl.accessToken =
-//   "pk.eyJ1IjoibmR3b2xmMTk5MSIsImEiOiJjbDA4aGppczcwM2kzM2pxdHZydmdsYm5yIn0.ZPuI0T1FxHGAJu_wklsSXg"; // public token, not able to make changes to map itself with it
-// // only access style layer etc.
-
 mapboxgl.accessToken = // new style url
   "pk.eyJ1IjoibmR3b2xmMTk5MSIsImEiOiJjbDA4aGppczcwM2kzM2pxdHZydmdsYm5yIn0.ZPuI0T1FxHGAJu_wklsSXg"; // public token, not able to make changes to map itself with it
 // only access style layer etc.
@@ -14,7 +10,7 @@ const map = new mapboxgl.Map({
   // style: "mapbox://styles/ndwolf1991/cl0ikst93000j15p45jdekxmf", // style URL
   style: "mapbox://styles/ndwolf1991/cl1f5gcur004t15mf6m1dt47j", // new style url
   center: [-76.543134, 43.453054], // starting position [lng, lat]
-  zoom: 16, // initial zoom start
+  zoom: 15.65, // initial zoom start
   bearing: -37.25, // slightly off north to show majority of campus
   pitch: 0, // directly overhead
 });
@@ -38,28 +34,6 @@ map.on("load", () => {
 
   console.log("Map Loaded");
 });
-
-// map.on("mousemove", (event) => {
-//   // tracks geoloc respective of map, coordinations repsective of where map is framed and building name if applicable.
-//   // currently does not reset upon moving off of a building
-//   const features = bondFeatures(_bounds, map, event);
-
-//   if (features.length) {
-//     document.getElementById("building").innerHTML = JSON.stringify(
-//       features[0].properties.name
-//     );
-//     document.getElementById("coords").innerHTML = JSON.stringify(event.point);
-//     document.getElementById("geoloc").innerHTML = JSON.stringify(
-//       event.lngLat.wrap()
-//     );
-//   } else {
-//     document.getElementById("building").innerHTML = "N/a";
-//     document.getElementById("coords").innerHTML = JSON.stringify(event.point);
-//     document.getElementById("geoloc").innerHTML = JSON.stringify(
-//       event.lngLat.wrap()
-//     );
-//   }
-// });
 
 map.on("click", "buildings", (event) => {
   // Copy coordinates array.
