@@ -9,7 +9,7 @@ const _mapPanBound = [
   [-76.51798, 43.46965], // Northeast coordinates
   // [-76.54276, 43.46965], // Southeast coordinates
 ];
-const flyToZoom = 17.26285948120726;
+const flyToZoom = 17.5;
 
 const map = new mapboxgl.Map({
   // creates Mapbox object
