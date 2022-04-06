@@ -1,20 +1,20 @@
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1080px){
   #popup {
     max-width: 325px;
   }
 
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px){
+@media screen and (min-width: 768px) and (max-width: 1079px){
   #popup {
-    max-width: 250px;
+    max-width: 200px;
   }
   
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (max-width: 767px) {
     #popup {
-      max-width: 200px;
+      max-width: 175px;
     }
 }
 
