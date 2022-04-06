@@ -3,16 +3,22 @@ mapboxgl.accessToken = // new style url
 // only access style layer etc.
 
 const _bounds = 0.5;
+const _mapPanBound = [
+  // [-76.51798, 43.42107], // Northwest Coordinates
+  [-76.54276, 43.42107], // Southwest coordinates
+  [-76.51798, 43.46965], // Northeast coordinates
+  // [-76.54276, 43.46965], // Southeast coordinates
+];
 
 const map = new mapboxgl.Map({
   // creates Mapbox object
   container: "map", // container ID
-  // style: "mapbox://styles/ndwolf1991/cl0ikst93000j15p45jdekxmf", // style URL
   style: "mapbox://styles/ndwolf1991/cl1f5gcur004t15mf6m1dt47j", // new style url
   center: [-76.543134, 43.453054], // starting position [lng, lat]
   zoom: 15.65, // initial zoom start
   bearing: -37.25, // slightly off north to show majority of campus
   pitch: 0, // directly overhead
+  // maxBounds: _mapPanBound,
 });
 
 function bondFeatures(bound, map, event) {
@@ -66,6 +72,14 @@ map.on("click", "buildings", (event) => {
     .addTo(map);
 });
 
+map.on("click", "buildings", (e) => {
+  map.flyTo({
+    center: e.features[0].geometry.coordinates,
+    zoom: 17.26285948120726,
+    speed: 0.45,
+  });
+});
+
 map.on("mouseenter", "buildings", () => {
   map.getCanvas().style.cursor = "pointer";
 });
@@ -73,6 +87,29 @@ map.on("mouseenter", "buildings", () => {
 // Change it back to a pointer when it leaves.
 map.on("mouseleave", "buildings", () => {
   map.getCanvas().style.cursor = "";
+});
+
+map.on("mousemove", (event) => {
+  // tracks geoloc respective of map, coordinations repsective of where map is framed and building name if applicable.
+  // currently does not reset upon moving off of a building
+  const features = bondFeatures(_bounds, map, event);
+
+  if (features.length) {
+    document.getElementById("building").innerHTML = JSON.stringify(
+      features[0].properties.name
+    );
+    document.getElementById("coords").innerHTML = JSON.stringify(event.point);
+    document.getElementById("geoloc").innerHTML = JSON.stringify(
+      event.lngLat.wrap()
+    );
+  } else {
+    document.getElementById("building").innerHTML = "N/a";
+    document.getElementById("coords").innerHTML = JSON.stringify(event.point);
+    document.getElementById("geoloc").innerHTML = JSON.stringify(
+      event.lngLat.wrap()
+    );
+  }
+  document.getElementById("currentZoom").innerHTML = map.getZoom();
 });
 
 map.addControl(new mapboxgl.FullscreenControl());
