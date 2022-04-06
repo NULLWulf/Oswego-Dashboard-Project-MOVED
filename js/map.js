@@ -97,21 +97,13 @@ map.on("mousemove", (event) => {
   // currently does not reset upon moving off of a building
   const features = bondFeatures(_bounds, map, event);
 
-  if (features.length) {
-    document.getElementById("building").innerHTML = JSON.stringify(
-      features[0].properties.name
-    );
-    document.getElementById("coords").innerHTML = JSON.stringify(event.point);
-    document.getElementById("geoloc").innerHTML = JSON.stringify(
-      event.lngLat.wrap()
-    );
-  } else {
-    document.getElementById("building").innerHTML = "N/a";
-    document.getElementById("coords").innerHTML = JSON.stringify(event.point);
-    document.getElementById("geoloc").innerHTML = JSON.stringify(
-      event.lngLat.wrap()
-    );
-  }
+  document.getElementById("building").innerHTML = features.length
+    ? JSON.stringify(features[0].properties.name)
+    : "N/a";
+  document.getElementById("coords").innerHTML = JSON.stringify(event.point);
+  document.getElementById("geoloc").innerHTML = JSON.stringify(
+    event.lngLat.wrap()
+  );
   document.getElementById("currentZoom").innerHTML = map.getZoom();
 });
 
