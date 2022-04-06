@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <title>SUNY Oswego Map Interface</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
@@ -12,17 +15,17 @@
       rel="stylesheet"
     />
     <link href="./css/style.css" rel="stylesheet" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
   </head>
   <body>
     <div id="map"></div>
     <div class="info-panel">
+      <!-- <button type="button">Test jQuery Code</button> -->
       <div><strong>Building Name:</strong> <span id="building"></span></div>
       <div><strong>Long/Lat:</strong> <span id="geoloc"></span></div>
       <div><strong>Coords:</strong> <span id="coords"></span></div>
       <div><strong>Zoom:</strong> <span id="currentZoom"></span></div>
     </div>
-    <script src="./js/map.js"></script>
-    <img id="fs-logo" src="./images/branding/Facilities Logo.png" />
+    <script type="text/javascript" src="./js/map.js"></script>
+    <!-- <img id="fs-logo" src="./images/branding/Facilities Logo.png" /> -->
   </body>
 </html>

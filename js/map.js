@@ -10,6 +10,8 @@ const _mapPanBound = [
   // [-76.54276, 43.46965], // Southeast coordinates
 ];
 
+
+
 const map = new mapboxgl.Map({
   // creates Mapbox object
   container: "map", // container ID
@@ -76,7 +78,7 @@ map.on("click", "buildings", (e) => {
   map.flyTo({
     center: e.features[0].geometry.coordinates,
     zoom: 17.26285948120726,
-    speed: 0.45,
+    speed: 0.3,
   });
 });
 
