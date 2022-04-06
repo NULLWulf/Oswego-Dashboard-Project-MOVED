@@ -50,10 +50,10 @@ body {
 }
 
 .info-panel {
-  position: absolute;
+    position: absolute;
+    bottom: 16px;
+    right: 6px;
   font-family: sans-serif;
-  margin-top: 5px;
-  margin-left: 5px;
   padding: 5px;
   width: 425px;
   border: 2px solid black;
