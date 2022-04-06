@@ -55,7 +55,7 @@ map.on("click", "buildings", (event) => {
   }
 
   const popupHtml = `
-  <div id="popup" class="popups">
+   <div id="popup" class="popups">
     <h2>${features[0].properties.name}</h2>
     <img src="images/building-images/${features[0].properties.buildingNo}.jpg" alt="Image of ${features[0].properties.name}"></img>
     </br>
