@@ -1,3 +1,25 @@
+@media screen and (min-width: 1024px){
+  #popup {
+    max-width: 325px;
+  }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  #popup {
+    max-width: 250px;
+  }
+  
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    #popup {
+      max-width: 200px;
+    }
+}
+
+
+
 #info {
   display: table;
   position: relative;
@@ -48,9 +70,7 @@ img {
 
 }
 
-#popup{
-  max-width: 275px;
-}
+
 
 #fs-logo{
     position: fixed;
