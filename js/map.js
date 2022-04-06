@@ -9,8 +9,7 @@ const _mapPanBound = [
   [-76.51798, 43.46965], // Northeast coordinates
   // [-76.54276, 43.46965], // Southeast coordinates
 ];
-
-
+const flyToZoom = 17.26285948120726;
 
 const map = new mapboxgl.Map({
   // creates Mapbox object
@@ -75,9 +74,11 @@ map.on("click", "buildings", (event) => {
 });
 
 map.on("click", "buildings", (e) => {
+  const constraintZoom = map.getZoom() > flyToZoom ? map.getZoom() : flyToZoom; // if zoom is less than fly too zoom constraint, uses current zoom level
+  // notes higher zoom level means more magnifation
   map.flyTo({
     center: e.features[0].geometry.coordinates,
-    zoom: 17.26285948120726,
+    zoom: constraintZoom,
     speed: 0.3,
   });
 });
