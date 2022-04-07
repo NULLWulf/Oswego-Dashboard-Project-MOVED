@@ -46,7 +46,17 @@ map.on("click", "buildings", (event) => {
   const coordinates = event.features[0].geometry.coordinates.slice();
   const features = bondFeatures(_bounds, map, event);
 
-  toggleSidebar("right");
+  if (features.length) {
+    let img = document.createElement("img");
+    img.src = "images/building-images/${features[0].properties.buildingNo}.jpg";
+    let src = document.getElementById("building-image");
+    src.appendChild(img);
+
+    document.getElementById("info-building").innerHTML =
+      features[0].properties.name;
+
+    toggleSidebar("right");
+  }
 
   // const popUps = document.getElementsByClassName("mapboxgl-popup");
   // if (popUps[0]) popUps[0].remove();
@@ -54,7 +64,7 @@ map.on("click", "buildings", (event) => {
   // const popupHtml = `
   //   <h2>${features[0].properties.name}</h2>
   //   <h4>
-  //   <img src="images/building-images/${features[0].properties.buildingNo}.jpg" alt="Image of ${features[0].properties.name}"></img>
+  //   <img src= alt="Image of ${features[0].properties.name}"></img>
   //   </br>
   //   <strong>Building No: </strong>${features[0].properties.buildingNo}
   //   </br>
@@ -63,9 +73,6 @@ map.on("click", "buildings", (event) => {
   //   <a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank">AIM Asset View</a>
   //   </h4>
   //   `;
-
-  document.getElementById("info-building").innerHTML =
-    features[0].properties.name;
 });
 
 map.on("click", "buildings", (e) => {
