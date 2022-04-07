@@ -57,7 +57,7 @@ img {
 
 /* Marker tweaks */
 .mapboxgl-popup-close-button {
-  display: none;
+  float: right;
 }
 
 .mapboxgl-popup-content {
