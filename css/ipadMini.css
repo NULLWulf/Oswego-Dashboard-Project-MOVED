@@ -6,6 +6,6 @@
         }
         
         .info-panel {
-            opacity: 0;
+            display: none;
         }
  }
