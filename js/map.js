@@ -53,9 +53,12 @@ map.on("click", "buildings", (event) => {
     coordinates[0] += event.lngLat.lng > coordinates[0] ? 360 : -360;
   }
 
+  const popUps = document.getElementsByClassName("mapboxgl-popup");
+  if (popUps[0]) popUps[0].remove();
+
   const popupHtml = `
-   <div id="popup" class="popups">
     <h2>${features[0].properties.name}</h2>
+    <h4>
     <img src="images/building-images/${features[0].properties.buildingNo}.jpg" alt="Image of ${features[0].properties.name}"></img>
     </br>
     <strong>Building No: </strong>${features[0].properties.buildingNo}
@@ -63,13 +66,18 @@ map.on("click", "buildings", (event) => {
     <strong>Ft<sup>2</sup>: </strong>${features[0].properties.squareFt}
     </br>
     <a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank">AIM Asset View</a>
-  </div> `;
+    </h4>
+    `;
 
-  new mapboxgl.Popup()
+  const popup = new mapboxgl.Popup({ closeOnClick: false })
     .setLngLat(coordinates)
     .setHTML(popupHtml)
-    .setMaxWidth("none")
     .addTo(map);
+  // new mapboxgl.Popup()
+  //   .setLngLat(coordinates)
+  //   .setHTML(popupHtml)
+  //   .setMaxWidth("none")
+  //   .addTo(map);
 });
 
 map.on("click", "buildings", (e) => {
