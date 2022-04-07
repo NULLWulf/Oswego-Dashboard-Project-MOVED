@@ -48,6 +48,9 @@ map.on("click", "buildings", (event) => {
 
   toggleSidebar("right");
 
+  // const popUps = document.getElementsByClassName("mapboxgl-popup");
+  // if (popUps[0]) popUps[0].remove();
+
   // const popupHtml = `
   //   <h2>${features[0].properties.name}</h2>
   //   <h4>
@@ -60,6 +63,9 @@ map.on("click", "buildings", (event) => {
   //   <a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank">AIM Asset View</a>
   //   </h4>
   //   `;
+
+  document.getElementById("info-building").innerHTML =
+    features[0].properties.name;
 });
 
 map.on("click", "buildings", (e) => {
@@ -114,6 +120,9 @@ function toggleSidebar(id) {
   var elem = document.getElementById(id);
   var classes = elem.className.split(" ");
   var collapsed = classes.indexOf("collapsed") !== -1;
+
+  var padding = {};
+
   if (collapsed) {
     // Remove the 'collapsed' class from the class list of the element, this sets it back to the expanded state.
     classes.splice(classes.indexOf("collapsed"), 1);

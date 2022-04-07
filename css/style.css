@@ -18,6 +18,12 @@ body {
   padding: 0;
 }
 
+h1 {
+  font-size: 30px;
+  white-space: normal;
+  line-height: normal;
+}
+
 #map {
   position: absolute;
   top: 0;
