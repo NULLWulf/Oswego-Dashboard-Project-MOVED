@@ -48,9 +48,6 @@ map.on("click", "buildings", (event) => {
 
   toggleSidebar("right");
 
-  // const popUps = document.getElementsByClassName("mapboxgl-popup");
-  // if (popUps[0]) popUps[0].remove();
-
   // const popupHtml = `
   //   <h2>${features[0].properties.name}</h2>
   //   <h4>
@@ -63,11 +60,6 @@ map.on("click", "buildings", (event) => {
   //   <a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank">AIM Asset View</a>
   //   </h4>
   //   `;
-
-  // const popup = new mapboxgl.Popup({ closeOnClick: true })
-  //   .setLngLat(coordinates)
-  //   .setHTML(popupHtml)
-  //   .addTo(map);
 });
 
 map.on("click", "buildings", (e) => {
