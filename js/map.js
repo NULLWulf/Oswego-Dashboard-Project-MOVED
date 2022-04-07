@@ -46,13 +46,6 @@ map.on("click", "buildings", (event) => {
   const coordinates = event.features[0].geometry.coordinates.slice();
   const features = bondFeatures(_bounds, map, event);
 
-  // Ensure that if the map is zoomed out such that multiple
-  // copies of the feature are visible, the popup appears
-  // over the copy being pointed to.
-  while (Math.abs(event.lngLat.lng - coordinates[0]) > 180) {
-    coordinates[0] += event.lngLat.lng > coordinates[0] ? 360 : -360;
-  }
-
   const popUps = document.getElementsByClassName("mapboxgl-popup");
   if (popUps[0]) popUps[0].remove();
 
@@ -73,11 +66,6 @@ map.on("click", "buildings", (event) => {
     .setLngLat(coordinates)
     .setHTML(popupHtml)
     .addTo(map);
-  // new mapboxgl.Popup()
-  //   .setLngLat(coordinates)
-  //   .setHTML(popupHtml)
-  //   .setMaxWidth("none")
-  //   .addTo(map);
 });
 
 map.on("click", "buildings", (e) => {
