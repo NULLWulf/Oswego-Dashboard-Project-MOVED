@@ -62,7 +62,7 @@ map.on("click", "buildings", (event) => {
     </h4>
     `;
 
-  const popup = new mapboxgl.Popup({ closeOnClick: false })
+  const popup = new mapboxgl.Popup({ closeOnClick: true })
     .setLngLat(coordinates)
     .setHTML(popupHtml)
     .addTo(map);
