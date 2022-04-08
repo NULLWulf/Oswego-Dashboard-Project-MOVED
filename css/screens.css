@@ -9,3 +9,13 @@
             display: none;
         }
  }
+
+@media screen and (min-width: 1080px) {
+
+}
+
+@media screen and (max-width: 767px){
+            .info-panel {
+                display: none;
+            }
+}
