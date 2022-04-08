@@ -46,12 +46,8 @@ map.on("click", "buildings", (event) => {
   const coordinates = event.features[0].geometry.coordinates.slice();
   const features = bondFeatures(_bounds, map, event);
 
-  const popUps = document.getElementsByClassName("mapboxgl-popup");
-  if (popUps[0]) popUps[0].remove();
-
-  const popupHtml = `
-    <h2>${features[0].properties.name}</h2>
-    <h4>
+  if (features.length) {
+    const popupHtml = `
     <img src="images/building-images/${features[0].properties.buildingNo}.jpg" alt="Image of ${features[0].properties.name}"></img>
     </br>
     <strong>Building No: </strong>${features[0].properties.buildingNo}
@@ -61,11 +57,12 @@ map.on("click", "buildings", (event) => {
     <a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank">AIM Asset View</a>
     </h4>
     `;
+    document.getElementById("right-sidebar-body").innerHTML = popupHtml;
+    document.getElementById("info-building").innerHTML =
+      features[0].properties.name;
 
-  const popup = new mapboxgl.Popup({ closeOnClick: true })
-    .setLngLat(coordinates)
-    .setHTML(popupHtml)
-    .addTo(map);
+    toggleSidebar("right");
+  }
 });
 
 map.on("click", "buildings", (e) => {
@@ -126,21 +123,10 @@ function toggleSidebar(id) {
   if (collapsed) {
     // Remove the 'collapsed' class from the class list of the element, this sets it back to the expanded state.
     classes.splice(classes.indexOf("collapsed"), 1);
-
-    padding[id] = 300; // In px, matches the width of the sidebars set in .sidebar CSS class
-    map.easeTo({
-      padding: padding,
-      duration: 1000, // In ms, CSS transition duration property for the sidebar matches this value
-    });
   } else {
     padding[id] = 0;
     // Add the 'collapsed' class to the class list of the element
     classes.push("collapsed");
-
-    map.easeTo({
-      padding: padding,
-      duration: 1000,
-    });
   }
 
   // Update the class list on the element

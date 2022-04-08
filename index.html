@@ -24,13 +24,24 @@
       <div id="left" class="sidebar flex-center left collapsed">
         <div class="sidebar-content rounded-rect flex-center">
           <div class="sidebar-content-top">
-            <h2 id="h2-text">Locations</h2>
+          <img id="fs-logo" src="./images/branding/Facilities Logo.png" />
           </div>
           <div
             class="sidebar-toggle rounded-rect left"
             onclick="toggleSidebar('left')"
           >
             <div class="rotate">🗺️</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="right" class="sidebar flex-center right collapsed">
+        <div class="sidebar-content rounded-rect flex-center">
+          <div class="sidebar-content-top">
+            <h1 id="h2-text"><span id="info-building"></span></h2>
+            </div>
+            <div id="right-sidebar-body">  
+            </div>
           </div>
         </div>
       </div>
@@ -43,6 +54,5 @@
       <div><strong>Zoom:</strong> <span id="currentZoom"></span></div>
     </div>
     <script type="text/javascript" src="./js/map.js"></script>
-    <img id="fs-logo" src="./images/branding/Facilities Logo.png" />
   </body>
 </html>

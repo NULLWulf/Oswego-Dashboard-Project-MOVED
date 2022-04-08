@@ -18,6 +18,12 @@ body {
   padding: 0;
 }
 
+h1 {
+  font-size: 30px;
+  white-space: normal;
+  line-height: normal;
+}
+
 #map {
   position: absolute;
   top: 0;
@@ -46,54 +52,11 @@ img {
     margin-right: auto;
 }
 
-#fs-logo{
+/* #fs-logo{
     position: fixed;
     left: 7.5px;
     top: 7.5px;
     margin: 0;
     padding: 0;
     width: 7.0%;
-}
-
-/* Marker tweaks */
-.mapboxgl-popup-close-button {
-  float: right;
-}
-
-.mapboxgl-popup-content {
-  font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
-  padding: 0;
-  width: 300px;
-  border-radius: 20px;
-  
-}
-
-.mapboxgl-popup-content h2 {
-  text-align: center;
-  background: #355E3B;
-  color: #fff;
-  margin: 0;
-  padding: 10px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  font-weight: 700;
-  margin-top: -15px;
-}
-
-.mapboxgl-popup-content h4 {
-  margin: 0;
-  padding: 10px;
-  font-weight: 400;
-}
-
-.mapboxgl-popup-content div {
-  padding: 10px;
-}
-
-.mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
-  margin-top: 15px;
-}
-
-.mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
-  border-bottom-color: #91c949;
-}
+} */
