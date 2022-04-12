@@ -42,8 +42,6 @@ map.on("load", () => {
 });
 
 map.on("click", "buildings", (event) => {
-  // Copy coordinates array.
-  const coordinates = event.features[0].geometry.coordinates.slice();
   const features = bondFeatures(_bounds, map, event);
 
   if (features.length) {
@@ -60,9 +58,8 @@ map.on("click", "buildings", (event) => {
     document.getElementById("right-sidebar-body").innerHTML = popupHtml;
     document.getElementById("info-building").innerHTML =
       features[0].properties.name;
-
-    toggleSidebar("right");
   }
+  toggleSidebar("right");
 });
 
 map.on("click", "buildings", (e) => {
@@ -128,6 +125,20 @@ function toggleSidebar(id) {
     // Add the 'collapsed' class to the class list of the element
     classes.push("collapsed");
   }
+
+  // Update the class list on the element
+  elem.className = classes.join(" ");
+}
+
+function forceClose(id) {
+  var elem = document.getElementById(id);
+  var classes = elem.className.split(" ");
+  var collapsed = classes.indexOf("collapsed") !== -1;
+
+  var padding = {};
+
+  // Add the 'collapsed' class to the class list of the element
+  classes.push("collapsed");
 
   // Update the class list on the element
   elem.className = classes.join(" ");
