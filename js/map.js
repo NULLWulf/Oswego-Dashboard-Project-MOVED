@@ -37,7 +37,19 @@ function bondFeatures(bound, map, event) {
 
 map.on("load", () => {
   // On initial map load performs these functions
-  map.addControl(new mapboxgl.NavigationControl()); // adds basioc control structure to document, can be further modified
+  // map.addControl(new mapboxgl.NavigationControl()); // adds basioc control structure to document, can be further modified
+  // map.addControl(new mapboxgl.FullscreenControl());
+  // map.addControl(
+  //   new mapboxgl.GeolocateControl({
+  //     positionOptions: {
+  //       enableHighAccuracy: true,
+  //     },
+  //     // When active the map will receive updates to the device's location as it changes.
+  //     trackUserLocation: true,
+  //     // Draw an arrow next to the location dot to indicate which direction the device is heading.
+  //     showUserHeading: true,
+  //   })
+  // );
   console.log("Map Loaded");
 });
 
@@ -96,20 +108,6 @@ map.on("mousemove", (event) => {
   );
   document.getElementById("currentZoom").innerHTML = map.getZoom();
 });
-
-map.addControl(new mapboxgl.FullscreenControl());
-
-map.addControl(
-  new mapboxgl.GeolocateControl({
-    positionOptions: {
-      enableHighAccuracy: true,
-    },
-    // When active the map will receive updates to the device's location as it changes.
-    trackUserLocation: true,
-    // Draw an arrow next to the location dot to indicate which direction the device is heading.
-    showUserHeading: true,
-  })
-);
 
 function toggleSidebar(id) {
   let elem = document.getElementById(id);
