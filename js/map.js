@@ -41,10 +41,11 @@ map.on("load", () => {
   console.log("Map Loaded");
 });
 
-map.on("click", "buildings", (event) => {
+map.on("click", (event) => {
   const features = bondFeatures(_bounds, map, event);
+  ensureClose("right");
 
-  if (features.length) {
+  if (features.length !== -1) {
     const popupHtml = `
     <img src="images/building-images/${features[0].properties.buildingNo}.jpg" alt="Image of ${features[0].properties.name}"></img>
     </br>
@@ -58,8 +59,8 @@ map.on("click", "buildings", (event) => {
     document.getElementById("right-sidebar-body").innerHTML = popupHtml;
     document.getElementById("info-building").innerHTML =
       features[0].properties.name;
+    toggleSidebar("right");
   }
-  toggleSidebar("right");
 });
 
 map.on("click", "buildings", (e) => {
@@ -81,20 +82,20 @@ map.on("mouseleave", "buildings", () => {
   map.getCanvas().style.cursor = "";
 });
 
-map.on("mousemove", (event) => {
-  // tracks geoloc respective of map, coordinations repsective of where map is framed and building name if applicable.
-  // currently does not reset upon moving off of a building
-  const features = bondFeatures(_bounds, map, event);
+// map.on("mousemove", (event) => {
+//   // tracks geoloc respective of map, coordinations repsective of where map is framed and building name if applicable.
+//   // currently does not reset upon moving off of a building
+//   const features = bondFeatures(_bounds, map, event);
 
-  document.getElementById("building").innerHTML = features.length
-    ? JSON.stringify(features[0].properties.name)
-    : "N/a";
-  document.getElementById("coords").innerHTML = JSON.stringify(event.point);
-  document.getElementById("geoloc").innerHTML = JSON.stringify(
-    event.lngLat.wrap()
-  );
-  document.getElementById("currentZoom").innerHTML = map.getZoom();
-});
+//   document.getElementById("building").innerHTML = features.length
+//     ? JSON.stringify(features[0].properties.name)
+//     : "N/a";
+//   document.getElementById("coords").innerHTML = JSON.stringify(event.point);
+//   document.getElementById("geoloc").innerHTML = JSON.stringify(
+//     event.lngLat.wrap()
+//   );
+//   document.getElementById("currentZoom").innerHTML = map.getZoom();
+// });
 
 map.addControl(new mapboxgl.FullscreenControl());
 
@@ -111,13 +112,11 @@ map.addControl(
 );
 
 function toggleSidebar(id) {
-  var elem = document.getElementById(id);
-  var classes = elem.className.split(" ");
-  var collapsed = classes.indexOf("collapsed") !== -1;
+  let elem = document.getElementById(id);
+  let classes = elem.className.split(" ");
+  let padding = {};
 
-  var padding = {};
-
-  if (collapsed) {
+  if (elem.classList.contains("collapsed")) {
     // Remove the 'collapsed' class from the class list of the element, this sets it back to the expanded state.
     classes.splice(classes.indexOf("collapsed"), 1);
   } else {
@@ -130,16 +129,14 @@ function toggleSidebar(id) {
   elem.className = classes.join(" ");
 }
 
-function forceClose(id) {
-  var elem = document.getElementById(id);
-  var classes = elem.className.split(" ");
-  var collapsed = classes.indexOf("collapsed") !== -1;
+function ensureClose(id) {
+  let elem = document.getElementById(id);
 
-  var padding = {};
-
-  // Add the 'collapsed' class to the class list of the element
-  classes.push("collapsed");
-
-  // Update the class list on the element
-  elem.className = classes.join(" ");
+  if (!elem.classList.contains("collapsed")) {
+    let classes = elem.className.split(" ");
+    let padding = {};
+    padding[id] = 0;
+    classes.push("collapsed");
+    elem.className = classes.join(" ");
+  }
 }
