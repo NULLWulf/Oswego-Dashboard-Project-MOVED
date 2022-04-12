@@ -37,7 +37,7 @@ h1 {
     right: 6px;
   font-family: sans-serif;
   padding: 5px;
-  width: 425px;
+  width: auto;
   border: 2px solid black;
   font-size: 14px;
   color: #222;
