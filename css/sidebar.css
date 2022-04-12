@@ -35,10 +35,10 @@
 }
 
 .sidebar-content {
-    position: relative;
-    top: 0px;
+    position: absolute;
+    top: 1.75%;
     width: 95%;
-    height: 80%;
+    height: 50%;
     border-radius: 20px;
 }
 
