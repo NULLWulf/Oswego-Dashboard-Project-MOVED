@@ -82,20 +82,20 @@ map.on("mouseleave", "buildings", () => {
   map.getCanvas().style.cursor = "";
 });
 
-// map.on("mousemove", (event) => {
-//   // tracks geoloc respective of map, coordinations repsective of where map is framed and building name if applicable.
-//   // currently does not reset upon moving off of a building
-//   const features = bondFeatures(_bounds, map, event);
+map.on("mousemove", (event) => {
+  // tracks geoloc respective of map, coordinations repsective of where map is framed and building name if applicable.
+  // currently does not reset upon moving off of a building
+  const features = bondFeatures(_bounds, map, event);
 
-//   document.getElementById("building").innerHTML = features.length
-//     ? JSON.stringify(features[0].properties.name)
-//     : "N/a";
-//   document.getElementById("coords").innerHTML = JSON.stringify(event.point);
-//   document.getElementById("geoloc").innerHTML = JSON.stringify(
-//     event.lngLat.wrap()
-//   );
-//   document.getElementById("currentZoom").innerHTML = map.getZoom();
-// });
+  document.getElementById("building").innerHTML = features.length
+    ? JSON.stringify(features[0].properties.name)
+    : "N/a";
+  document.getElementById("coords").innerHTML = JSON.stringify(event.point);
+  document.getElementById("geoloc").innerHTML = JSON.stringify(
+    event.lngLat.wrap()
+  );
+  document.getElementById("currentZoom").innerHTML = map.getZoom();
+});
 
 map.addControl(new mapboxgl.FullscreenControl());
 
