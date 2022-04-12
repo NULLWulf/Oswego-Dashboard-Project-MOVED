@@ -131,7 +131,6 @@ function toggleSidebar(id) {
 
 function ensureClose(id) {
   let elem = document.getElementById(id);
-
   if (!elem.classList.contains("collapsed")) {
     let classes = elem.className.split(" ");
     let padding = {};
