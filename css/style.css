@@ -91,28 +91,35 @@ h2 {
 }
 
 .sidebar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: absolute;
   top: 1.75%;
   width: 95%;
-  height: 60%;
+  height: 720px;
   left: 10px;
+  background-color: white;
+  text-align: center;
 }
-
+ .smalltext{
+   text-align: center;
+   margin-left:0%;
+   padding-left: 0%;
+ }
 .left-sidebar-body {
-
-  position: absolute;
+  padding-left: 10px;
+  height: 100%;
   left: 5px;
   bottom: 100px;
 }
 
 .right-sidebar-body {
-  position: absolute;
   left: 5px;
   top: 100px;
 }
 
 .sidebar-content-top {
-  position: absolute;
   top: 0px;
   background-color: #355E3B;
   left: 0px;
