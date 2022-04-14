@@ -41,6 +41,7 @@
 }
 
 .left-sidebar-body {
+
     position: absolute;
     left: 5px;
     bottom: 100px;
@@ -67,17 +68,17 @@
 
 .sidebar-toggle {
     position: absolute;
-    width: 1.3em;
-    height: 1.3em;
+    width: 60px;
+    height: 60px;
     overflow: visible;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20
+    font-size: 30;
 }
 
 .sidebar-toggle.left {
-    right: -1.5em;
+    right: -5em;
 }
 
 .sidebar-toggle.right {

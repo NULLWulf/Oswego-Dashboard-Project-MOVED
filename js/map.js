@@ -68,13 +68,13 @@ map.on("click", "buildings", (e) => {
 });
 
 function flyToId(id) {
-  const constraintZoom = map.getZoom() > flyToZoom ? map.getZoom() : flyToZoom; // if zoom is less than fly too zoom constraint, uses current zoom level
-  // notes higher zoom level means more magnifation
-  map.flyTo({
-    center: [-76.543134, 43.453054],
-    zoom: constraintZoom,
-    speed: 0.3,
-  });
+  // const constraintZoom = map.getZoom() > flyToZoom ? map.getZoom() : flyToZoom; // if zoom is less than fly too zoom constraint, uses current zoom level
+  // // notes higher zoom level means more magnifation
+  // map.flyTo({
+  //   center: [-76.543134, 43.453054],
+  //   zoom: constraintZoom,
+  //   speed: 0.3,
+  // });
   console.log(id);
 }
 
