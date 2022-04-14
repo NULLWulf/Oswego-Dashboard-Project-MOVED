@@ -15,68 +15,57 @@
       rel="stylesheet"
     />
     <link href="./css/style.css" rel="stylesheet" />
-    <link href="./css/ipadMini.css" rel="stylesheet" />
-    <link href="./css/sidebar.css" rel="stylesheet" />
-    <link href="./css/desktops.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="map">
-      <div id="left" class="sidebar flex-center left collapsed">
-        <div class="sidebar-content rounded-rect flex-center">
-          <div class="sidebar-content-top">
-            <img id="fs-logo" src="./images/branding/inverted_fs.png" />
-          </div>
-          <div class="left-sidebar-body">
-            <div>
-              <div class="center-headers"><h2>Campus Regions</h2></div>
-              <ul>
-                <li id="central" onClick="flyToId(this.id)">Central Campus</li>
-                <li id="lakeside" onClick="flyToId(this.id)">Lakeside</li>
-                <li id="east" onClick="flyToId(this.id)">East Campus</li>
-                <li id="west" onClick="flyToId(this.id)">West Campus</li>
-                <li id="athletic" onClick="flyToId(this.id)">
-                  Athletic Complex
-                </li>
-                <li id="village" onClick="flyToId(this.id)">The Village</li>
-                <li id="rice" onClick="flyToId(this.id)">Rice Creek</li>
-                <li id="fallbrook" onClick="flyToId(this.id)">Fallbrook</li>
-                <li id="downtown" onClick="flyToId(this.id)">
-                  Downtown Oswego
-                </li>
-                <li id="syracuse" onClick="flyToId(this.id)">Syracuse</li>
-              </ul>
-            </div>
-            <div class="center-headers"><h2>Live Map Data</h2></div>
-            <div>
-              <strong>Building Name:</strong> <span id="building"></span>
-            </div>
-            <div><strong>Long:</strong> <span id="lng"></span></div>
-            <div><strong>Lat:</strong> <span id="lat"></span></div>
-            <div><strong>Coords:</strong> <span id="coords"></span></div>
-            <div><strong>CenterCoords:</strong> <span id="center"></span></div>
-            <div><strong>Zoom:</strong> <span id="currentZoom"></span></div>
-          </div>
+    <div id="map"></div>
+
+    <div id="left" class="sidebar flex-center left collapsed">
+      <div class="sidebar-content rounded-rect flex-center">
+        <div class="sidebar-content-top">
+          <img id="fs-logo" src="./images/branding/inverted_fs.png" />
         </div>
-        <div
-          class="sidebar-toggle rounded-rect left"
-          onclick="toggleSidebar('left')"
-        >
-          🗺️
+        <div class="left-sidebar-body">
+          <div>
+            <div class="center-headers"><h2>Campus Regions</h2></div>
+            <ul>
+              <li id="central" onClick="flyToId(this.id)">Central Campus</li>
+              <li id="lakeside" onClick="flyToId(this.id)">Lakeside</li>
+              <li id="east" onClick="flyToId(this.id)">East Campus</li>
+              <li id="west" onClick="flyToId(this.id)">West Campus</li>
+              <li id="athletic" onClick="flyToId(this.id)">Athletic Complex</li>
+              <li id="village" onClick="flyToId(this.id)">The Village</li>
+              <li id="rice" onClick="flyToId(this.id)">Rice Creek</li>
+              <li id="fallbrook" onClick="flyToId(this.id)">Fallbrook</li>
+              <li id="downtown" onClick="flyToId(this.id)">Downtown Oswego</li>
+              <li id="syracuse" onClick="flyToId(this.id)">Syracuse</li>
+            </ul>
+          </div>
+          <div class="center-headers"><h2>Live Map Data</h2></div>
+          <div><strong>Building Name:</strong> <span id="building"></span></div>
+          <div><strong>Long:</strong> <span id="lng"></span></div>
+          <div><strong>Lat:</strong> <span id="lat"></span></div>
+          <div><strong>Coords:</strong> <span id="coords"></span></div>
+          <div><strong>CenterCoords:</strong> <span id="center"></span></div>
+          <div><strong>Zoom:</strong> <span id="currentZoom"></span></div>
         </div>
       </div>
-
-      <div id="right" class="sidebar flex-center right collapsed">
-        <div class="sidebar-content rounded-rect flex-center">
-          <div class="sidebar-content-top">
-            <h1><span id="info-building"></span></h1>
-          </div>
-          <div
-            id="right-sidebar-body-inserter"
-            class="right-sidebar-body"
-          ></div>
-        </div>
+      <div
+        class="sidebar-toggle rounded-rect left"
+        onclick="toggleSidebar('left')"
+      >
+        🗺️
       </div>
     </div>
+
+    <div id="right" class="sidebar flex-center right collapsed">
+      <div class="sidebar-content rounded-rect flex-center">
+        <div class="sidebar-content-top">
+          <h1><span id="info-building"></span></h1>
+        </div>
+        <div id="right-sidebar-body-inserter" class="right-sidebar-body"></div>
+      </div>
+    </div>
+
     <script type="text/javascript" src="./js/map.js"></script>
   </body>
 </html>
