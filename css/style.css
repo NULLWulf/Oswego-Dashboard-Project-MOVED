@@ -147,3 +147,8 @@ h2 {
   color: #0aa1cf;
   cursor: pointer;
 }
+
+.live-map-info {
+  display: flex;
+  flex-direction: column;
+}

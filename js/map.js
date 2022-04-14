@@ -1,15 +1,8 @@
 mapboxgl.accessToken = // new style url
   "pk.eyJ1IjoibmR3b2xmMTk5MSIsImEiOiJjbDA4aGppczcwM2kzM2pxdHZydmdsYm5yIn0.ZPuI0T1FxHGAJu_wklsSXg"; // public token, not able to make changes to map itself with it
 // only access style layer etc.
-
 const _bounds = 0.5;
-const _mapPanBound = [
-  // [-76.51798, 43.42107], // Northwest Coordinates
-  [-76.54276, 43.42107], // Southwest coordinates
-  [-76.51798, 43.46965], // Northeast coordinates
-  // [-76.54276, 43.46965], // Southeast coordinates
-];
-const flyToZoom = 18;
+const flyToZoom = 18; // maximum zoom level after FlyToZoom is initialized when interacting with building icons
 
 const map = new mapboxgl.Map({
   // creates Mapbox object
@@ -31,15 +24,17 @@ function bondFeatures(bound, map, event) {
   ];
 
   return map.queryRenderedFeatures(bbox, { layers: ["buildings"] }); // returns Objecct that corresponds with data values under point
-  // bounds are passed in so you can tweak the clickable radius of elements (in this case using as a stock incon for a target, unsure
-  // of methods that allow of interacting with stock map elemtns )
+  // bounds are passed in so you can tweak the clickable radius of the element corresponding with each building.
 }
 
 map.on("click", (event) => {
-  const features = bondFeatures(_bounds, map, event);
-  ensureClose("right");
+  const features = bondFeatures(_bounds, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
+  ensureClose("right"); // ensures right sidebar collapses
 
   if (features.length !== -1) {
+    // will trigger if any features exist under point and open side bar.
+    // TODO Consideration:  Make this similar to the left side bar where the html is static on the index.html
+    // Populates building data as html
     const popupHtml = `
     <img src="images/building-images/${features[0].properties.buildingNo}.jpg" alt="Image of ${features[0].properties.name}"></img>
     </br>
@@ -50,10 +45,10 @@ map.on("click", (event) => {
     <a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank">AIM Asset View</a>
     `;
     document.getElementById("right-sidebar-body-inserter").innerHTML =
-      popupHtml;
+      popupHtml; // inserts into sidebar
     document.getElementById("info-building").innerHTML =
-      features[0].properties.name;
-    toggleSidebar("right");
+      features[0].properties.name; // sets buildings name in top content area
+    toggleSidebar("right"); // toggles sidebar should close and reopen as new building if clicking new building
   }
 });
 
@@ -61,20 +56,19 @@ map.on("click", "buildings", (e) => {
   const constraintZoom = map.getZoom() > flyToZoom ? map.getZoom() : flyToZoom; // if zoom is less than fly too zoom constraint, uses current zoom level
   // notes higher zoom level means more magnifation
   map.flyTo({
-    center: e.features[0].geometry.coordinates,
-    zoom: constraintZoom,
+    center: e.features[0].geometry.coordinates, // centers map based on exact point in geoJson array
+    zoom: constraintZoom, // new constrainted zoom, since this is an object data value, variable needs to be declares up top
     speed: 0.3,
   });
 });
 
 function flyToId(id) {
-  // const constraintZoom = map.getZoom() > flyToZoom ? map.getZoom() : flyToZoom; // if zoom is less than fly too zoom constraint, uses current zoom level
-  // // notes higher zoom level means more magnifation
-  // map.flyTo({
-  //   center: [-76.543134, 43.453054],
-  //   zoom: constraintZoom,
-  //   speed: 0.3,
-  // });
+  // WIP This will pass the html element id and match to a json map to get specific map fly to constraints.
+  map.flyTo({
+    center: [-76.543134, 43.453054],
+    zoom: constraintZoom,
+    speed: 0.3,
+  });
   console.log(id);
 }
 
@@ -82,27 +76,28 @@ map.on("mouseenter", "buildings", () => {
   map.getCanvas().style.cursor = "pointer";
 });
 
-// Change it back to a pointer when it leaves.
 map.on("mouseleave", "buildings", () => {
   map.getCanvas().style.cursor = "";
 });
 
 map.on("mousemove", (event) => {
-  // tracks geoloc respective of map, coordinations repsective of where map is framed and building name if applicable.
-  // currently does not reset upon moving off of a building
+  // tracks live map data based on position of map, zoom, bearing, pitch etc. Mostly used for testing
   const features = bondFeatures(_bounds, map, event);
 
   document.getElementById("building").innerHTML = features.length
     ? JSON.stringify(features[0].properties.name)
     : "N/a";
   document.getElementById("coords").innerHTML = JSON.stringify(event.point);
-  document.getElementById("lng").innerHTML = JSON.stringify(event.lngLat.lng);
-  document.getElementById("lat").innerHTML = JSON.stringify(event.lngLat.lat);
-  document.getElementById("center").innerHTML = map.getCenter();
+  document.getElementById("mlat").innerHTML = JSON.stringify(event.lngLat.lng);
+  document.getElementById("mlng").innerHTML = JSON.stringify(event.lngLat.lat);
+  document.getElementById("clat").innerHTML = map.getCenter().lat;
+  document.getElementById("clng").innerHTML = map.getCenter().lng;
   document.getElementById("currentZoom").innerHTML = map.getZoom();
+  document.getElementById("bearing").innerHTML = map.getBearing();
+  document.getElementById("pitch").innerHTML = map.getPitch();
 });
 
-function toggleSidebar(id) {
+function toggleSidebar(id) { 
   let elem = document.getElementById(id);
   let classes = elem.className.split(" ");
   let padding = {};

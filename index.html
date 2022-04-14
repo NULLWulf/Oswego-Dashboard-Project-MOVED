@@ -18,35 +18,39 @@
   </head>
   <body>
     <div id="map"></div>
-
     <div id="left" class="sidebar flex-center left collapsed">
       <div class="sidebar-content rounded-rect flex-center">
         <div class="sidebar-content-top">
           <img id="fs-logo" src="./images/branding/inverted_fs.png" />
         </div>
         <div class="left-sidebar-body">
-          <div>
-            <div class="center-headers"><h2>Campus Regions</h2></div>
-            <ul>
-              <li id="central" onClick="flyToId(this.id)">Central Campus</li>
-              <li id="lakeside" onClick="flyToId(this.id)">Lakeside</li>
-              <li id="east" onClick="flyToId(this.id)">East Campus</li>
-              <li id="west" onClick="flyToId(this.id)">West Campus</li>
-              <li id="athletic" onClick="flyToId(this.id)">Athletic Complex</li>
-              <li id="village" onClick="flyToId(this.id)">The Village</li>
-              <li id="rice" onClick="flyToId(this.id)">Rice Creek</li>
-              <li id="fallbrook" onClick="flyToId(this.id)">Fallbrook</li>
-              <li id="downtown" onClick="flyToId(this.id)">Downtown Oswego</li>
-              <li id="syracuse" onClick="flyToId(this.id)">Syracuse</li>
-            </ul>
+          <h2>Campus Regions</h2>
+          <ul>
+            <li id="central" onClick="flyToId(this.id)">Central Campus</li>
+            <li id="lakeside" onClick="flyToId(this.id)">Lakeside</li>
+            <li id="east" onClick="flyToId(this.id)">East Campus</li>
+            <li id="west" onClick="flyToId(this.id)">West Campus</li>
+            <li id="athletic" onClick="flyToId(this.id)">Athletic Complex</li>
+            <li id="village" onClick="flyToId(this.id)">The Village</li>
+            <li id="rice" onClick="flyToId(this.id)">Rice Creek</li>
+            <li id="fallbrook" onClick="flyToId(this.id)">Fallbrook</li>
+            <li id="downtown" onClick="flyToId(this.id)">Downtown Oswego</li>
+            <li id="syracuse" onClick="flyToId(this.id)">Syracuse</li>
+          </ul>
+          <h2>Live Map Data</h2>
+          <div class="live-map-info">
+            <div>
+              <strong>Building Name:</strong><span id="building"></span>
+            </div>
+            <div><strong>Coords:</strong> <span id="coords"></span></div>
+            <div><strong>Mouse Lat:</strong> <span id="mlat"></span></div>
+            <div><strong>Mouse Lng:</strong> <span id="mlng"></span></div>
+            <div><strong>Center Lat:</strong> <span id="clat"></span></div>
+            <div><strong>Center Lng</strong> <span id="clng"></span></div>
+            <div><strong>Zoom:</strong> <span id="currentZoom"></span></div>
+            <div><strong>Bearing:</strong> <span id="bearing"></span></div>
+            <div><strong>Pitch:</strong> <span id="pitch"></span></div>
           </div>
-          <div class="center-headers"><h2>Live Map Data</h2></div>
-          <div><strong>Building Name:</strong> <span id="building"></span></div>
-          <div><strong>Long:</strong> <span id="lng"></span></div>
-          <div><strong>Lat:</strong> <span id="lat"></span></div>
-          <div><strong>Coords:</strong> <span id="coords"></span></div>
-          <div><strong>CenterCoords:</strong> <span id="center"></span></div>
-          <div><strong>Zoom:</strong> <span id="currentZoom"></span></div>
         </div>
       </div>
       <div
