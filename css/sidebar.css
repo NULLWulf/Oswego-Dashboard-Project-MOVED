@@ -40,10 +40,16 @@
     left: 10px;
 }
 
-.left-sidebar-content {
+.left-sidebar-body {
     position: absolute;
     left: 5px;
     bottom: 130px;
+}
+
+.right-sidebar-body {
+    position: absolute;
+    left: 5px;
+    top: 100px;
 }
 
 .sidebar-content-top{
@@ -55,7 +61,7 @@
     color: #ffffff;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    white-space: break-word;
+    font-size: 14px;
     text-align: center;
 }
 
