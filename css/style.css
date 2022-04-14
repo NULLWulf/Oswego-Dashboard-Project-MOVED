@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   padding: 0;
@@ -22,4 +21,24 @@ img {
     display: flex;
     justify-content: center;
     flex-shrink: 4;
+}
+
+li {
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+li:hover {
+  background-color: #9dc8a4;
+  transition-timing-function: ease;
+  transition-duration: .5s;
+}
+
+h1 {
+  font-size: 3.0em;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 2.0em;
 }
