@@ -75,6 +75,7 @@ function flyToId(id) {
     zoom: constraintZoom,
     speed: 0.3,
   });
+  console.log(id);
 }
 
 map.on("mouseenter", "buildings", () => {
