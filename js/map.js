@@ -48,7 +48,6 @@ map.on("click", (event) => {
     <strong>Ft<sup>2</sup>: </strong>${features[0].properties.squareFt}
     </br>
     <a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank">AIM Asset View</a>
-    </h4>
     `;
     document.getElementById("right-sidebar-body").innerHTML = popupHtml;
     document.getElementById("info-building").innerHTML =
@@ -85,9 +84,11 @@ map.on("mousemove", (event) => {
     ? JSON.stringify(features[0].properties.name)
     : "N/a";
   document.getElementById("coords").innerHTML = JSON.stringify(event.point);
-  document.getElementById("geoloc").innerHTML = JSON.stringify(
-    event.lngLat.wrap()
-  );
+  // document.getElementById("geoloc").innerHTML = JSON.stringify(
+  //   event.lngLat.wrap()
+  // );
+  document.getElementById("lng").innerHTML = JSON.stringify(event.lngLat.lng);
+  document.getElementById("lat").innerHTML = JSON.stringify(event.lngLat.lat);
   document.getElementById("currentZoom").innerHTML = map.getZoom();
 });
 

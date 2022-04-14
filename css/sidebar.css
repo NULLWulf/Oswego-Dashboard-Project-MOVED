@@ -7,9 +7,9 @@
 
 .flex-center {
     position: absolute;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .flex-center.left {
@@ -30,7 +30,7 @@
 
 .rounded-rect {
     background: white;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 0 50px -25px black;
 }
 
@@ -39,7 +39,13 @@
     top: 1.75%;
     width: 95%;
     height: 50%;
-    border-radius: 20px;
+    left: 10px;
+}
+
+.left-sidebar-content {
+    position: absolute;
+    bottom: 0px;
+    left: 5px;
 }
 
 .sidebar-content-top{
