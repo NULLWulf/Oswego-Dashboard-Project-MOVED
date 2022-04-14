@@ -1,48 +1,14 @@
-#info {
-  display: table;
-  position: relative;
-  margin: 0px auto;
-  word-wrap: anywhere;
-  white-space: pre-wrap;
-  padding: 10px;
-  border: none;
-  border-radius: 3px;
-  font-size: 12px;
-  text-align: center;
-  color: #222;
-  background: #fff;
-}
 
 body {
   margin: 0;
   padding: 0;
 }
 
-/* h1 {
-  font-size: 30px;
-  white-space: normal;
-  line-height: normal;
-} */
-
 #map {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 100%;
-}
-
-.info-panel {
-    position: absolute;
-    bottom: 16px;
-    right: 6px;
-  font-family: sans-serif;
-  padding: 5px;
-  width: auto;
-  border: 2px solid black;
-  font-size: 14px;
-  color: #222;
-  background-color: #fff;
-  border-radius: 3px;
 }
 
 img {
