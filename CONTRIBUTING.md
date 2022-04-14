@@ -13,3 +13,5 @@ by means of citation in an about or credits page.
 - other file typeas needed
 
 ### Images are property of SUNY Oswego and may not be utilized by other parties for any reasons.
+
+## We reserve the right to alter these guidelines at any time for any reason. 
