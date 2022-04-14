@@ -31,7 +31,7 @@
             <div>
               <div></div>
               <ul>
-                <li>Central Campus</li>
+                <li id="central" onClick="flyToId(this.id)">Central Campus</li>
                 <li>Lakeside</li>
                 <li>East Campus</li>
                 <li>West Campus</li>
@@ -43,12 +43,15 @@
                 <li>Syracuse</li>
               </ul>
             </div>
+            <div class="center-headers"><h2>Live Map Data</h2></div>
+
             <div>
               <strong>Building Name:</strong> <span id="building"></span>
             </div>
             <div><strong>Long:</strong> <span id="lng"></span></div>
             <div><strong>Lat:</strong> <span id="lat"></span></div>
             <div><strong>Coords:</strong> <span id="coords"></span></div>
+            <div><strong>CenterCoords:</strong> <span id="center"></span></div>
             <div><strong>Zoom:</strong> <span id="currentZoom"></span></div>
           </div>
           <div

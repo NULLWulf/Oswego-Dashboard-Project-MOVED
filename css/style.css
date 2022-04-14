@@ -22,10 +22,18 @@ img {
     justify-content: center;
     flex-shrink: 4;
 }
+ul {
+  list-style: none;
+  text-align: left;
+  padding-left: 2.5em;
+}
 
 li {
+  padding-left: 1.5em;
+  text-indent: -1em;
+  font-size: 1.2em;
+  position: relative;
   cursor: pointer;
-  font-size: 1.5em;
 }
 
 li:hover {

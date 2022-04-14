@@ -67,6 +67,16 @@ map.on("click", "buildings", (e) => {
   });
 });
 
+function flyToId(id) {
+  const constraintZoom = map.getZoom() > flyToZoom ? map.getZoom() : flyToZoom; // if zoom is less than fly too zoom constraint, uses current zoom level
+  // notes higher zoom level means more magnifation
+  map.flyTo({
+    center: [-76.543134, 43.453054],
+    zoom: constraintZoom,
+    speed: 0.3,
+  });
+}
+
 map.on("mouseenter", "buildings", () => {
   map.getCanvas().style.cursor = "pointer";
 });
@@ -87,6 +97,7 @@ map.on("mousemove", (event) => {
   document.getElementById("coords").innerHTML = JSON.stringify(event.point);
   document.getElementById("lng").innerHTML = JSON.stringify(event.lngLat.lng);
   document.getElementById("lat").innerHTML = JSON.stringify(event.lngLat.lat);
+  document.getElementById("center").innerHTML = map.getCenter();
   document.getElementById("currentZoom").innerHTML = map.getZoom();
 });
 
