@@ -12,12 +12,12 @@ body {
 
 img {
   width: 95%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#fs-logo{
+#fs-logo {
     display: flex;
     justify-content: center;
     flex-shrink: 4;

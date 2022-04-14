@@ -1,13 +1,6 @@
 @media only screen and (min-device-width: 768px)
     and (max-device-width: 1024px) 
     and (-webkit-min-device-pixel-ratio: 2){
-        #popup {
-            max-width: 200px;
-        }
-        
-        .info-panel {
-            display: none;
-        }
  }
 
 @media screen and (min-width: 1080px) {
@@ -15,7 +8,4 @@
 }
 
 @media screen and (max-width: 767px){
-            .info-panel {
-                display: none;
-            }
 }
