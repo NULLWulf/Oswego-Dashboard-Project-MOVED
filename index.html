@@ -6,6 +6,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="./js/jquery.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+    <script src="https://kit.fontawesome.com/9660ea68b2.js" crossorigin="anonymous"></script>
+
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
@@ -24,20 +26,20 @@
           <img id="fs-logo" src="./images/branding/inverted_fs.png" />
         </div>
         <div class="left-sidebar-body">
-          <h2>Campus Regions</h2>
+          <h2 class="header">Campus Regions</h2>
           <ul class="smalltext">
-            <li class="smalltext" id="central" onClick="flyToId(this.id)">Central Campus</li>
-            <li class="smalltext" id="lakeside" onClick="flyToId(this.id)">Lakeside</li>
-            <li class="smalltext" id="east" onClick="flyToId(this.id)">East Campus</li>
-            <li class="smalltext" id="west" onClick="flyToId(this.id)">West Campus</li>
-            <li class="smalltext" id="athletic" onClick="flyToId(this.id)">Athletic Complex</li>
-            <li class="smalltext" id="village" onClick="flyToId(this.id)">The Village</li>
-            <li class="smalltext" id="rice" onClick="flyToId(this.id)">Rice Creek</li>
-            <li class="smalltext" id="fallbrook" onClick="flyToId(this.id)">Fallbrook</li>
-            <li class="smalltext" id="downtown" onClick="flyToId(this.id)">Downtown Oswego</li>
-            <li class="smalltext" id="syracuse" onClick="flyToId(this.id)">Syracuse</li>
+            <li id="central" onClick="flyToId(this.id)">Central Campus</li>
+            <li  id="lakeside" onClick="flyToId(this.id)">Lakeside</li>
+            <li id="east" onClick="flyToId(this.id)">East Campus</li>
+            <li  id="west" onClick="flyToId(this.id)">West Campus</li>
+            <li  id="athletic" onClick="flyToId(this.id)">Athletic Complex</li>
+            <li  id="village" onClick="flyToId(this.id)">The Village</li>
+            <li  id="rice" onClick="flyToId(this.id)">Rice Creek</li>
+            <li id="fallbrook" onClick="flyToId(this.id)">Fallbrook</li>
+            <li  id="downtown" onClick="flyToId(this.id)">Downtown Oswego</li>
+            <li id="syracuse" onClick="flyToId(this.id)">Syracuse</li>
           </ul>
-          <h2>Live Map Data</h2>
+          <h2 class="header">Live Map Data</h2>
           <div class="live-map-info smalltext">
             <div>
               <strong>Building Name:</strong><span id="building"></span>
@@ -57,7 +59,7 @@
         class="sidebar-toggle rounded-rect left"
         onclick="toggleSidebar('left')"
       >
-        🗺️
+      <i class="fa-solid fa-map"></i>
       </div>
     </div>
 
