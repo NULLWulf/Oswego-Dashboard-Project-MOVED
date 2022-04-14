@@ -7,9 +7,7 @@
 
 .flex-center {
     position: absolute;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    display: flex;
 }
 
 .flex-center.left {
@@ -44,8 +42,8 @@
 
 .left-sidebar-content {
     position: absolute;
-    bottom: 0px;
     left: 5px;
+    bottom: 130px;
 }
 
 .sidebar-content-top{
@@ -59,12 +57,6 @@
     border-top-right-radius: 20px;
     white-space: break-word;
     text-align: center;
-}
-
-.right-sidebar-body {
-    /* flex-direction: row;
-    align-items: flex-start;
-    align-content: flex-start; */
 }
 
 .sidebar-toggle {
