@@ -37,6 +37,7 @@ li {
   font-size: 1.2em;
   position: relative;
   cursor: pointer;
+  margin-right: 20px;
 }
 
 li:hover {
@@ -111,6 +112,7 @@ h2 {
   height: 100%;
   left: 5px;
   bottom: 100px;
+  padding-right: 10px;
 }
 
 .right-sidebar-body {
