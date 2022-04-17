@@ -36,13 +36,10 @@ map.on("click", (event) => {
     // TODO Consideration:  Make this similar to the left side bar where the html is static on the index.html
     // Populates building data as html
     const popupHtml = `
-    <img src="images/building-images/${features[0].properties.buildingNo}.jpg" alt="Image of ${features[0].properties.name}"></img>
-    </br>
-    <strong>Building No: </strong>${features[0].properties.buildingNo}
-    </br>
-    <strong>Ft<sup>2</sup>: </strong>${features[0].properties.squareFt}
-    </br>
-    <a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank">AIM Asset View</a>
+    <div><img src="images/building-images/${features[0].properties.buildingNo}.jpg" alt="Image of ${features[0].properties.name}"></img></div>
+    <div><strong>Building No: </strong>${features[0].properties.buildingNo}</div>
+    <div><strong>Ft<sup>2</sup>: </strong>${features[0].properties.squareFt}</div>
+    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank"><strong>IM Asset View</strong></a></div>
     `;
     document.getElementById("right-sidebar-body-inserter").innerHTML =
       popupHtml; // inserts into sidebar
