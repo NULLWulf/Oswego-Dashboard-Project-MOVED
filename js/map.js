@@ -64,6 +64,7 @@ map.on("click", "buildings", (e) => {
 
 function flyToId(id) {
   let regionIndex = NaN;
+  let speedMod = 0.3;
   switch (id) {
     case "central":
       regionIndex = 0;
@@ -82,18 +83,23 @@ function flyToId(id) {
       break;
     case "village":
       regionIndex = 5;
+      speedMod = 0.6;
       break;
     case "rice":
       regionIndex = 6;
+      speedMod = 0.6;
       break;
     case "fallbrook":
       regionIndex = 7;
+      speedMod = 0.6;
       break;
     case "downtown":
       regionIndex = 8;
+      speedMod = 0.6;
       break;
     case "syracuse":
       regionIndex = 9;
+      speedMod = 0.6;
       break;
   }
   const centerR = regions[regionIndex].center;
@@ -102,7 +108,7 @@ function flyToId(id) {
   map.flyTo({
     center: centerR,
     zoom: zoomR,
-    speed: 0.3,
+    speed: speedMod,
     bearing: bearingR,
   });
 }
