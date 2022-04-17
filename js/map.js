@@ -164,11 +164,15 @@ function ensureClose(id) {
   }
 }
 
+function toggleMapStyle() {
+  map.setStyle("mapbox://styles/mapbox/satellite-v9");
+}
+
 const regions = [
   {
     region: "central",
     center: [-76.54294334759209, 43.45347920082102],
-    zoom: 16.82618111,
+    zoom: 16.875459902527414,
     bearing: -32,
   },
   {
