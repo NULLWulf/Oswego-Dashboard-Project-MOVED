@@ -63,13 +63,48 @@ map.on("click", "buildings", (e) => {
 });
 
 function flyToId(id) {
-  // WIP This will pass the html element id and match to a json map to get specific map fly to constraints.
+  let regionIndex = NaN;
+  switch (id) {
+    case "central":
+      regionIndex = 0;
+      break;
+    case "lakeside":
+      regionIndex = 1;
+      break;
+    case "east":
+      regionIndex = 2;
+      break;
+    case "west":
+      regionIndex = 3;
+      break;
+    case "athletic":
+      regionIndex = 4;
+      break;
+    case "village":
+      regionIndex = 5;
+      break;
+    case "rice":
+      regionIndex = 6;
+      break;
+    case "fallbrook":
+      regionIndex = 7;
+      break;
+    case "downtown":
+      regionIndex = 8;
+      break;
+    case "syracuse":
+      regionIndex = 9;
+      break;
+  }
+  const centerR = regions[regionIndex].center;
+  const zoomR = regions[regionIndex].zoom;
+  const bearingR = regions[regionIndex].bearing;
   map.flyTo({
-    center: [-76.543134, 43.453054],
-    zoom: constraintZoom,
+    center: centerR,
+    zoom: zoomR,
     speed: 0.3,
+    bearing: bearingR,
   });
-  console.log(id);
 }
 
 map.on("mouseenter", "buildings", () => {
@@ -88,8 +123,8 @@ map.on("mousemove", (event) => {
     ? JSON.stringify(features[0].properties.name)
     : "N/a";
   document.getElementById("coords").innerHTML = JSON.stringify(event.point);
-  document.getElementById("mlat").innerHTML = JSON.stringify(event.lngLat.lng);
-  document.getElementById("mlng").innerHTML = JSON.stringify(event.lngLat.lat);
+  document.getElementById("mlat").innerHTML = JSON.stringify(event.lngLat.lat);
+  document.getElementById("mlng").innerHTML = JSON.stringify(event.lngLat.lng);
   document.getElementById("clat").innerHTML = map.getCenter().lat;
   document.getElementById("clng").innerHTML = map.getCenter().lng;
   document.getElementById("currentZoom").innerHTML = map.getZoom();
@@ -97,7 +132,7 @@ map.on("mousemove", (event) => {
   document.getElementById("pitch").innerHTML = map.getPitch();
 });
 
-function toggleSidebar(id) { 
+function toggleSidebar(id) {
   let elem = document.getElementById(id);
   let classes = elem.className.split(" ");
   let padding = {};
@@ -125,3 +160,66 @@ function ensureClose(id) {
     elem.className = classes.join(" ");
   }
 }
+
+const regions = [
+  {
+    region: "central",
+    center: [-76.54294334759209, 43.45347920082102],
+    zoom: 16.82618111,
+    bearing: -32,
+  },
+  {
+    region: "lakeside",
+    center: [-76.54021035103943, 43.45724401433708],
+    zoom: 17.11144729,
+    bearing: -37,
+  },
+  {
+    region: "east",
+    center: [-76.53636691718475, 43.45522585648385],
+    zoom: 16.9951515,
+    bearing: 0,
+  },
+  {
+    region: "west",
+    center: [-76.54866150274084, 43.45050187154001],
+    zoom: 17.73465424,
+    bearing: -50,
+  },
+  {
+    region: "athletic",
+    center: [-76.53619107389581, 43.4476488569735],
+    zoom: 16.55784477,
+    bearing: -32,
+  },
+  {
+    region: "village",
+    center: [-76.54833021875518, 43.44783233942783],
+    zoom: 17.88606643,
+    bearing: -42,
+  },
+  {
+    region: "rice",
+    center: [-76.54966430787358, 43.429976388125624],
+    zoom: 17.75221243425645,
+    bearing: -32,
+  },
+  {
+    region: "fallbrook",
+    center: [-76.53989823543341, 43.42480854657407],
+    zoom: 17.250656149181214,
+    bearing: -32,
+  },
+  {
+    region: "downtown",
+    center: [-76.5071990728699, 43.45745286540054],
+    zoom: 18.37727826852788,
+    bearing: -20,
+  },
+  {
+    region: "syracuse",
+    center: [-76.15364909821363, 43.05075196784364],
+    zoom: 18.631023835047465,
+    bearing: -19.686627218935314,
+  },
+];
