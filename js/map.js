@@ -39,7 +39,7 @@ map.on("click", (event) => {
     <div><img src="images/building-images/${features[0].properties.buildingNo}.jpg" alt="Image of ${features[0].properties.name}"></img></div>
     <div><strong>Building No: </strong>${features[0].properties.buildingNo}</div>
     <div><strong>Ft<sup>2</sup>: </strong>${features[0].properties.squareFt}</div>
-    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank"><strong>IM Asset View</strong></a></div>
+    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank"><strong>AIM Asset View</strong></a></div>
     `;
     document.getElementById("right-sidebar-body-inserter").innerHTML =
       popupHtml; // inserts into sidebar
