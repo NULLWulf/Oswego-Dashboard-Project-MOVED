@@ -2,5 +2,6 @@
   "dependencies": {
     "jquery": "^3.6.0",
     "mapbox-gl": "^2.7.0"
-  }
+  },
+  "type": "module"
 }
