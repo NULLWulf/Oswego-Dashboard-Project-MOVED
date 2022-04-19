@@ -3,11 +3,14 @@ mapboxgl.accessToken = // new style url
 // only access style layer etc.
 const _bounds = 0.5;
 const flyToZoom = 18; // maximum zoom level after FlyToZoom is initialized when interacting with building icons
+const defaultStyle = "mapbox://styles/ndwolf1991/cl1f5gcur004t15mf6m1dt47j";
+const satelliteStyle = "mapbox://styles/mapbox/satellite-v9";
+let style = "default";
 
 const map = new mapboxgl.Map({
   // creates Mapbox object
   container: "map", // container ID
-  style: "mapbox://styles/ndwolf1991/cl1f5gcur004t15mf6m1dt47j", // new style url
+  style: defaultStyle, // new style url
   center: [-76.543134, 43.453054], // starting position [lng, lat]
   zoom: 15.65, // initial zoom start
   bearing: -37.25, // slightly off north to show majority of campus
@@ -165,7 +168,15 @@ function ensureClose(id) {
 }
 
 function toggleMapStyle() {
-  map.setStyle("mapbox://styles/mapbox/satellite-v9");
+  if (style == "default") {
+    map.setStyle(satelliteStyle);
+    document.getElementById("style-toggle").innerHTML = "Default View";
+    style = "satellite";
+  } else {
+    map.setStyle(defaultStyle);
+    document.getElementById("style-toggle").innerHTML = "Satellite View";
+    style = "default";
+  }
 }
 
 const regions = [
