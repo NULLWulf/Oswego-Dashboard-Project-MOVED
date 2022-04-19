@@ -232,3 +232,8 @@ const regions = [
     bearing: -19.686627218935314,
   },
 ];
+
+const nav = new mapboxgl.NavigationControl({
+  compass: true,
+});
+map.addControl(nav, "bottom-left");
