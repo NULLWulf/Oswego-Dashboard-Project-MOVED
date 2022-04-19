@@ -24,7 +24,7 @@ function bondFeatures(bound, map, event) {
   ];
 
   return map.queryRenderedFeatures(bbox, { layers: ["buildings"] }); // returns Objecct that corresponds with data values under point
-  // bounds are passed in so you can tweak the clickable radius of the element corresponding with each building.
+  // bounds are passed in so you can tweak the click radius of the element corresponding with each building.
 }
 
 map.on("click", (event) => {
@@ -45,7 +45,7 @@ map.on("click", (event) => {
       popupHtml; // inserts into sidebar
     document.getElementById("info-building").innerHTML =
       features[0].properties.name; // sets buildings name in top content area
-    toggleSidebar("right"); // toggles sidebar should close and reopen as new building if clicking new building
+    toggleSidebar("right"); // toggles sidebar should close and reopen as new building if mousedowning new building
   }
 });
 

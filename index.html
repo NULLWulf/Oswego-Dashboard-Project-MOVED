@@ -32,16 +32,20 @@
         <div class="left-sidebar-body">
           <h2 class="header">Campus Regions</h2>
           <ul class="smalltext">
-            <li id="central" onClick="flyToId(this.id)">Central Campus</li>
-            <li id="lakeside" onClick="flyToId(this.id)">Lakeside</li>
-            <li id="east" onClick="flyToId(this.id)">East Campus</li>
-            <li id="west" onClick="flyToId(this.id)">West Campus</li>
-            <li id="athletic" onClick="flyToId(this.id)">Athletic Complex</li>
-            <li id="village" onClick="flyToId(this.id)">The Village</li>
-            <li id="rice" onClick="flyToId(this.id)">Rice Creek</li>
-            <li id="fallbrook" onClick="flyToId(this.id)">Fallbrook</li>
-            <li id="downtown" onClick="flyToId(this.id)">Downtown Oswego</li>
-            <li id="syracuse" onClick="flyToId(this.id)">Syracuse</li>
+            <li id="central" onmousedown="flyToId(this.id)">Central Campus</li>
+            <li id="lakeside" onmousedown="flyToId(this.id)">Lakeside</li>
+            <li id="east" onmousedown="flyToId(this.id)">East Campus</li>
+            <li id="west" onmousedown="flyToId(this.id)">West Campus</li>
+            <li id="athletic" onmousedown="flyToId(this.id)">
+              Athletic Complex
+            </li>
+            <li id="village" onmousedown="flyToId(this.id)">The Village</li>
+            <li id="rice" onmousedown="flyToId(this.id)">Rice Creek</li>
+            <li id="fallbrook" onmousedown="flyToId(this.id)">Fallbrook</li>
+            <li id="downtown" onmousedown="flyToId(this.id)">
+              Downtown Oswego
+            </li>
+            <li id="syracuse" onmousedown="flyToId(this.id)">Syracuse</li>
           </ul>
           <h2 class="header">Live Map Data</h2>
           <div class="live-map-info smalltext">
@@ -58,7 +62,7 @@
             <div><strong>Pitch:</strong> <span id="pitch"></span></div>
           </div>
           <div class="button">
-            <button class="style-button" onclick="toggleMapStyle()">
+            <button class="style-button" onmousedown="toggleMapStyle()">
               Satellite View
             </button>
             <!-- See a list of Mapbox-hosted public styles at -->
@@ -68,7 +72,7 @@
       </div>
       <div
         class="sidebar-toggle rounded-rect left"
-        onclick="toggleSidebar('left')"
+        onmousedown="toggleSidebar('left')"
       >
         <i class="fa-solid fa-map"></i>
       </div>
@@ -82,8 +86,6 @@
         <div id="right-sidebar-body-inserter" class="right-sidebar-body"></div>
       </div>
     </div>
-
     <script type="text/javascript" src="./js/map.js"></script>
-    <script type="module" src="./js/jsonData.js"></script>
   </body>
 </html>
