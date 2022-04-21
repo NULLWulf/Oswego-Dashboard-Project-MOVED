@@ -9,6 +9,12 @@ body {
   font-size: 12px;
 }
 
+hr {
+  height: 5px;
+  color: #355e3b;
+  background-color: #355e3b;
+}
+
 #map {
   position: absolute;
   top: 0;
