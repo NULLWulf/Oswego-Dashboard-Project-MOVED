@@ -25,9 +25,12 @@
   <body>
     <div id="map"></div>
     <div id="left" class="sidebar flex-center left collapsed">
-      <div class="sidebar-content rounded-rect">
+      <div class="sidebar-content">
         <div class="sidebar-content-top">
-          <img id="fs-logo" src="./images/branding/inverted_fs.png" />
+          <img
+            class="fs-logo-building"
+            src="./images/branding/inverted_fs.png"
+          />
         </div>
         <div class="left-sidebar-body">
           <h2 class="header">Campus Regions</h2>
@@ -69,8 +72,6 @@
             >
               Satellite View
             </button>
-            <!-- See a list of Mapbox-hosted public styles at -->
-            <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
           </div>
         </div>
       </div>
@@ -82,14 +83,14 @@
       </div>
     </div>
 
-    <div id="right" class="sidebar flex-center right collapsed">
+    <!-- <div id="right" class="sidebar flex-center right collapsed">
       <div class="sidebar-content rounded-rect flex-center">
         <div class="sidebar-content-top">
           <h1><span id="info-building"></span></h1>
         </div>
         <div id="right-sidebar-body-inserter" class="right-sidebar-body"></div>
       </div>
-    </div>
+    </div> -->
     <script type="text/javascript" src="./js/map.js"></script>
   </body>
 </html>
