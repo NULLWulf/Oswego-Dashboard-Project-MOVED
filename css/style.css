@@ -1,10 +1,11 @@
-html,body {
+html,
+body {
   padding: 0;
   margin: 0;
   overflow: hidden;
   height: 100%;
   z-index: 1;
-  font-family: Montserrat,Roboto,sans-serif;
+  font-family: Montserrat, Roboto, sans-serif;
   font-size: 12px;
 }
 
@@ -12,20 +13,22 @@ html,body {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 100%;
-  font-family: Montserrat, Roboto,sans-serif;
+  width: 80%;
+  height: 100%;
+  right: 0;
+  font-family: Montserrat, Roboto, sans-serif;
 }
 
 img {
-  width: 95%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
-#fs-logo {
-    display: flex;
-    justify-content: center;
-    flex-shrink: 4;
+.fs-logo-building {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 4;
 }
 ul {
   list-style: none;
@@ -43,74 +46,43 @@ li {
 li:hover {
   background-color: #9dc8a4;
   transition-timing-function: ease;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
 }
 
 h1 {
-  font-size: 3.0em;
+  font-size: 3em;
   justify-content: center;
 }
 
 h2 {
-  font-size: 2.0em;
+  font-size: 2em;
   text-justify: center;
 }
 
 .sidebar {
   transition: transform 1s;
   z-index: 1;
-  width: 300px;
-  height: 100%;
-}
-
-.flex-center {
-  position: absolute;
-  display: flex;
-}
-
-.flex-center.left {
+  width: 20%;
   left: 0px;
-}
-
-.flex-center.right {
-  right: 0px;
-}
-
-.left.collapsed {
-  transform: translateX(-295px);
-}
-
-.right.collapsed {
-  transform: translateX(295px);
-}
-
-.rounded-rect {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 0 50px -25px black;
+  top: 0px;
+  bottom: 0px;
+  height: 100%;
 }
 
 .sidebar-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: absolute;
-  top: 10px;
-  width: 95%;
-  height: 720px;
-  left: 10px;
   background-color: white;
   text-align: center;
 }
- .smalltext{
-  
-   text-align: left;
-   padding-left: 20px;
- }
+.smalltext {
+  text-align: left;
+  padding-left: 20px;
+}
 .left-sidebar-body {
   padding-left: 10px;
   height: 100%;
-  left: 5px;
   bottom: 100px;
   padding-right: 10px;
 }
@@ -123,12 +95,10 @@ h2 {
 
 .sidebar-content-top {
   top: 0px;
-  background-color: #355E3B;
+  background-color: #355e3b;
   left: 0px;
   right: 0px;
   color: #ffffff;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
   font-size: 14px;
   text-align: center;
 }
@@ -143,7 +113,6 @@ h2 {
   align-items: center;
   margin-top: 10px;
   margin-top: 10px;
-
 }
 
 .sidebar-toggle.left {
@@ -164,6 +133,6 @@ h2 {
   flex-direction: column;
 }
 
-.fa-solid{
+.fa-solid {
   font-size: 30px;
 }
