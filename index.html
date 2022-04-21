@@ -31,22 +31,20 @@
         </div>
         <div class="left-sidebar-body">
           <h2 class="header">Campus Regions</h2>
-          <ul class="smalltext">
-            <li id="central" onmousedown="flyToId(this.id)">Central Campus</li>
-            <li id="lakeside" onmousedown="flyToId(this.id)">Lakeside</li>
-            <li id="east" onmousedown="flyToId(this.id)">East Campus</li>
-            <li id="west" onmousedown="flyToId(this.id)">West Campus</li>
-            <li id="athletic" onmousedown="flyToId(this.id)">
-              Athletic Complex
-            </li>
-            <li id="village" onmousedown="flyToId(this.id)">The Village</li>
-            <li id="rice" onmousedown="flyToId(this.id)">Rice Creek</li>
-            <li id="fallbrook" onmousedown="flyToId(this.id)">Fallbrook</li>
-            <li id="downtown" onmousedown="flyToId(this.id)">
-              Downtown Oswego
-            </li>
-            <li id="syracuse" onmousedown="flyToId(this.id)">Syracuse</li>
-          </ul>
+          <div class="dropdown">
+            <select id="region-dropwn" onchange="flyToId(this.value)">
+              <option value="central">Central Campus</option>
+              <option value="lakesvaluee">Lakeside</option>
+              <option value="east">East Campus</option>
+              <option value="west">West Campus</option>
+              <option value="athletic">Athletic Complex</option>
+              <option value="village">The Village</option>
+              <option value="rice">Rice Creek</option>
+              <option value="fallbrook">Fallbrook</option>
+              <option value="downtown">Downtown Oswego</option>
+              <option value="syracuse">Syracuse</option>
+            </select>
+          </div>
           <h2 class="header">Live Map Data</h2>
           <div class="live-map-info smalltext">
             <div>
