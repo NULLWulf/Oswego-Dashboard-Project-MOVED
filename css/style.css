@@ -28,7 +28,8 @@ img {
 .fs-logo-building {
   display: flex;
   justify-content: center;
-  flex-shrink: 4;
+  height: 256px;
+  width: auto;
 }
 ul {
   list-style: none;
@@ -101,6 +102,8 @@ h2 {
   color: #ffffff;
   font-size: 14px;
   text-align: center;
+  /* height: 284px;
+  width: 426px; */
 }
 
 .sidebar-toggle {
