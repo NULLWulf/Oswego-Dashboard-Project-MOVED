@@ -53,7 +53,6 @@ map.on("click", (event) => {
     document.getElementsByClassName("fs-logo-building")[0].src = `
     images/building-images/${features[0].properties.buildingNo}.jpg
     `;
-    console.log("Inside Features");
     console.log(features[0].properties);
   }
 });
