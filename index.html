@@ -11,7 +11,6 @@
       src="https://kit.fontawesome.com/9660ea68b2.js"
       crossorigin="anonymous"
     ></script>
-
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
@@ -25,28 +24,29 @@
   <body>
     <div id="map"></div>
     <div id="left" class="sidebar flex-center left collapsed">
-      <div class="sidebar-content rounded-rect">
+      <div class="sidebar-content">
         <div class="sidebar-content-top">
-          <img id="fs-logo" src="./images/branding/inverted_fs.png" />
+          <img
+            class="fs-logo-building"
+            src="./images/branding/inverted_fs.png"
+          />
         </div>
         <div class="left-sidebar-body">
           <h2 class="header">Campus Regions</h2>
-          <ul class="smalltext">
-            <li id="central" onmousedown="flyToId(this.id)">Central Campus</li>
-            <li id="lakeside" onmousedown="flyToId(this.id)">Lakeside</li>
-            <li id="east" onmousedown="flyToId(this.id)">East Campus</li>
-            <li id="west" onmousedown="flyToId(this.id)">West Campus</li>
-            <li id="athletic" onmousedown="flyToId(this.id)">
-              Athletic Complex
-            </li>
-            <li id="village" onmousedown="flyToId(this.id)">The Village</li>
-            <li id="rice" onmousedown="flyToId(this.id)">Rice Creek</li>
-            <li id="fallbrook" onmousedown="flyToId(this.id)">Fallbrook</li>
-            <li id="downtown" onmousedown="flyToId(this.id)">
-              Downtown Oswego
-            </li>
-            <li id="syracuse" onmousedown="flyToId(this.id)">Syracuse</li>
-          </ul>
+          <div class="dropdown">
+            <select id="region-dropwn" onchange="flyToId(this.value)">
+              <option value="central">Central Campus</option>
+              <option value="lakeside">Lakeside</option>
+              <option value="east">East Campus</option>
+              <option value="west">West Campus</option>
+              <option value="athletic">Athletic Complex</option>
+              <option value="village">The Village</option>
+              <option value="rice">Rice Creek</option>
+              <option value="fallbrook">Fallbrook</option>
+              <option value="downtown">Downtown Oswego</option>
+              <option value="syracuse">Syracuse</option>
+            </select>
+          </div>
           <h2 class="header">Live Map Data</h2>
           <div class="live-map-info smalltext">
             <div>
@@ -65,29 +65,12 @@
             <button
               id="style-toggle"
               class="style-button"
-              onmousedown="toggleMapStyle()"
+              onSelect="toggleMapStyle()"
             >
               Satellite View
             </button>
-            <!-- See a list of Mapbox-hosted public styles at -->
-            <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
           </div>
         </div>
-      </div>
-      <div
-        class="sidebar-toggle rounded-rect left"
-        onmousedown="toggleSidebar('left')"
-      >
-        <i class="fa-solid fa-map"></i>
-      </div>
-    </div>
-
-    <div id="right" class="sidebar flex-center right collapsed">
-      <div class="sidebar-content rounded-rect flex-center">
-        <div class="sidebar-content-top">
-          <h1><span id="info-building"></span></h1>
-        </div>
-        <div id="right-sidebar-body-inserter" class="right-sidebar-body"></div>
       </div>
     </div>
     <script type="text/javascript" src="./js/map.js"></script>

@@ -32,23 +32,29 @@ function bondFeatures(bound, map, event) {
 
 map.on("click", (event) => {
   const features = bondFeatures(_bounds, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
-  ensureClose("right"); // ensures right sidebar collapses
+  // ensureClose("right"); // ensures right sidebar collapses
 
   if (features.length !== -1) {
-    // will trigger if any features exist under point and open side bar.
-    // TODO Consideration:  Make this similar to the left side bar where the html is static on the index.html
-    // Populates building data as html
-    const popupHtml = `
-    <div><img src="images/building-images/${features[0].properties.buildingNo}.jpg" alt="Image of ${features[0].properties.name}"></img></div>
-    <div><strong>Building No: </strong>${features[0].properties.buildingNo}</div>
-    <div><strong>Ft<sup>2</sup>: </strong>${features[0].properties.squareFt}</div>
-    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank"><strong>AIM Asset View</strong></a></div>
+    // // will trigger if any features exist under point and open side bar.
+    // // TODO Consideration:  Make this similar to the left side bar where the html is static on the index.html
+    // // Populates building data as html
+    // const popupHtml = `
+    // <div><img src="images/building-images/${features[0].properties.buildingNo}.jpg" alt="Image of ${features[0].properties.name}"></img></div>
+    // <div><strong>Building No: </strong>${features[0].properties.buildingNo}</div>
+    // <div><strong>Ft<sup>2</sup>: </strong>${features[0].properties.squareFt}</div>
+    // <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank"><strong>AIM Asset View</strong></a></div>
+    // `;
+    // document.getElementById("right-sidebar-body-inserter").innerHTML =
+    //   popupHtml; // inserts into sidebar
+    // document.getElementById("info-building").innerHTML =
+    //   features[0].properties.name; // sets buildings name in top content area
+    // toggleSidebar("right"); // toggles sidebar should close and reopen as new building if mousedowning new building
+
+    document.getElementsByClassName("fs-logo-building")[0].src = `
+    images/building-images/${features[0].properties.buildingNo}.jpg
     `;
-    document.getElementById("right-sidebar-body-inserter").innerHTML =
-      popupHtml; // inserts into sidebar
-    document.getElementById("info-building").innerHTML =
-      features[0].properties.name; // sets buildings name in top content area
-    toggleSidebar("right"); // toggles sidebar should close and reopen as new building if mousedowning new building
+    console.log("Inside Features");
+    console.log(features[0].properties);
   }
 });
 
@@ -63,6 +69,7 @@ map.on("click", "buildings", (e) => {
 });
 
 function flyToId(id) {
+  console.log("test");
   let regionIndex = NaN;
   switch (id) {
     case "central":
@@ -159,6 +166,7 @@ function ensureClose(id) {
 }
 
 function toggleMapStyle() {
+  console.log("testing toggle");
   if (style == "default") {
     map.setStyle(satelliteStyle);
     document.getElementById("style-toggle").innerHTML = "Default View";
