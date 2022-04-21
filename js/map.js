@@ -34,7 +34,7 @@ map.on("click", (event) => {
   const features = bondFeatures(_bounds, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
   // ensureClose("right"); // ensures right sidebar collapses
 
-  if (features.length !== -1) {
+  if (features.length == 1) {
     // // will trigger if any features exist under point and open side bar.
     // // TODO Consideration:  Make this similar to the left side bar where the html is static on the index.html
     // // Populates building data as html
@@ -54,6 +54,10 @@ map.on("click", (event) => {
     images/building-images/${features[0].properties.buildingNo}.jpg
     `;
     console.log(features[0].properties);
+  } else {
+    document.getElementById("building-header").innerHTML = "Select a Building";
+    document.getElementsByClassName("fs-logo-building")[0].src =
+      "./images/branding/inverted_fs.png";
   }
 });
 

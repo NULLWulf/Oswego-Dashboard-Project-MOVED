@@ -29,10 +29,12 @@
           <img
             class="fs-logo-building"
             src="./images/branding/inverted_fs.png"
+            onerror="this.src='./images/branding/inverted_fs.png'"
           />
         </div>
         <div class="left-sidebar-body">
           <h2 id="building-header" class="header">Select a Building</h2>
+          <hr />
           <div class="dropdown">
             <select id="region-dropwn" onchange="flyToId(this.value)">
               <option value="none" selected disabled hidden>
@@ -51,6 +53,7 @@
             </select>
           </div>
           <h2 class="header">Live Map Data</h2>
+          <hr />
           <div class="live-map-info smalltext">
             <div>
               <strong>Building Name:</strong><span id="building"></span>
