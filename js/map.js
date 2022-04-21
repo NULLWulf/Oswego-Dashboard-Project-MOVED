@@ -166,6 +166,7 @@ function ensureClose(id) {
 }
 
 function toggleMapStyle() {
+  console.log("testing toggle");
   if (style == "default") {
     map.setStyle(satelliteStyle);
     document.getElementById("style-toggle").innerHTML = "Default View";
