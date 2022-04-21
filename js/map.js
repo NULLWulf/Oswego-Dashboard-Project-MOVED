@@ -68,45 +68,11 @@ map.on("click", "buildings", (e) => {
 });
 
 function flyToId(id) {
-  console.log("test");
-  let regionIndex = NaN;
-  switch (id) {
-    case "central":
-      regionIndex = 0;
-      break;
-    case "lakeside":
-      regionIndex = 1;
-      break;
-    case "east":
-      regionIndex = 2;
-      break;
-    case "west":
-      regionIndex = 3;
-      break;
-    case "athletic":
-      regionIndex = 4;
-      break;
-    case "village":
-      regionIndex = 5;
-      break;
-    case "rice":
-      regionIndex = 6;
-      break;
-    case "fallbrook":
-      regionIndex = 7;
-      break;
-    case "downtown":
-      regionIndex = 8;
-      break;
-    case "syracuse":
-      regionIndex = 9;
-      break;
-  }
   map.flyTo({
-    center: regions[regionIndex].center,
-    zoom: regions[regionIndex].zoom,
+    center: regions[id].center,
+    zoom: regions[id].zoom,
     speed: 0.6,
-    bearing: regions[regionIndex].bearing,
+    bearing: regions[id].bearing,
   });
 }
 
