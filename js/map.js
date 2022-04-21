@@ -69,6 +69,7 @@ map.on("click", "buildings", (e) => {
 });
 
 function flyToId(id) {
+  console.log("test");
   let regionIndex = NaN;
   switch (id) {
     case "central":
