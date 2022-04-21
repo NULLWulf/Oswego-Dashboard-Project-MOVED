@@ -32,9 +32,12 @@
           />
         </div>
         <div class="left-sidebar-body">
-          <h2 class="header">Campus Regions</h2>
+          <h2 id="building-header" class="header">Select a Building</h2>
           <div class="dropdown">
             <select id="region-dropwn" onchange="flyToId(this.value)">
+              <option value="none" selected disabled hidden>
+                Campus Regions
+              </option>
               <option value="central">Central Campus</option>
               <option value="lakeside">Lakeside</option>
               <option value="east">East Campus</option>
@@ -65,7 +68,7 @@
             <button
               id="style-toggle"
               class="style-button"
-              onSelect="toggleMapStyle()"
+              onselect="toggleMapStyle()"
             >
               Satellite View
             </button>

@@ -46,14 +46,13 @@ map.on("click", (event) => {
     // `;
     // document.getElementById("right-sidebar-body-inserter").innerHTML =
     //   popupHtml; // inserts into sidebar
-    // document.getElementById("info-building").innerHTML =
-    //   features[0].properties.name; // sets buildings name in top content area
+    // sets buildings name in top content area
     // toggleSidebar("right"); // toggles sidebar should close and reopen as new building if mousedowning new building
-
+    document.getElementById("building-header").innerHTML =
+      features[0].properties.name;
     document.getElementsByClassName("fs-logo-building")[0].src = `
     images/building-images/${features[0].properties.buildingNo}.jpg
     `;
-    console.log("Inside Features");
     console.log(features[0].properties);
   }
 });
