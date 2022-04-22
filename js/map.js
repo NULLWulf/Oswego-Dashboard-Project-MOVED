@@ -5,7 +5,8 @@ const _bounds = 0.5;
 const flyToZoom = 18; // maximum zoom level after FlyToZoom is initialized when interacting with building icons
 const defaultStyle = "mapbox://styles/ndwolf1991/cl1f5gcur004t15mf6m1dt47j";
 const satelliteStyle = "mapbox://styles/mapbox/satellite-v9";
-let style = "default";
+
+let currentStyle = 0;
 
 const map = new mapboxgl.Map({
   // creates Mapbox object
@@ -18,49 +19,6 @@ const map = new mapboxgl.Map({
   // maxBounds: _mapPanBound,
 });
 
-map.on("load", () => {
-  map.addSource("earthquakes", {
-    type: "geojson",
-    // Use a URL for the value for the `data` property.
-    data: "https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson",
-  });
-
-  map.addSource("buildings", {
-    type: "geojson",
-    // Use a URL for the value for the `data` property.
-    data: buildings,
-  });
-
-  map.addLayer({
-    id: "earthquakes-layer",
-    type: "circle",
-    source: "earthquakes",
-    paint: {
-      "circle-radius": 8,
-      "circle-stroke-width": 2,
-      "circle-color": "red",
-      "circle-stroke-color": "white",
-    },
-  });
-
-  map.addLayer({
-    id: "buildings-layer",
-    // type: "circle",
-    type: "symbol",
-    source: "buildings",
-    layout: {
-      visibility: "visible",
-      "text-field": ["to-string", ["get", "name"]],
-      "text-size": 11,
-      "text-radial-offset": -1.5,
-      "text-anchor": "bottom",
-      "text-max-width": 20,
-    },
-    // icon: {
-    //   image: "border-dot-13",
-    // },
-  });
-});
 function bondFeatures(bound, map, event) {
   // if (map.loaded()) {
   const bbox = [
@@ -68,7 +26,7 @@ function bondFeatures(bound, map, event) {
     [event.point.x - bound, event.point.y - bound],
     [event.point.x + bound, event.point.y + bound],
   ];
-  return map.queryRenderedFeatures(bbox, { layers: ["buildings-layer"] }); // returns Objecct that corresponds with data values under point
+  return map.queryRenderedFeatures(bbox, { layers: ["buildings"] }); // returns Objecct that corresponds with data values under point
   // bounds are passed in so you can tweak the click radius of the element corresponding with each building.
   // function to get data features underneath point when an event is passed through
   // }
@@ -104,7 +62,7 @@ map.on("click", (event) => {
   }
 });
 
-map.on("click", "buildings-layer", (e) => {
+map.on("click", "buildings", (e) => {
   const constraintZoom = map.getZoom() > flyToZoom ? map.getZoom() : flyToZoom; // if zoom is less than fly too zoom constraint, uses current zoom level
   // notes higher zoom level means more magnifation
   map.flyTo({
@@ -114,11 +72,11 @@ map.on("click", "buildings-layer", (e) => {
   });
 });
 
-map.on("mouseenter", "buildings-layer", () => {
+map.on("mouseenter", "buildings", () => {
   map.getCanvas().style.cursor = "pointer";
 });
 
-map.on("mouseleave", "buildings-layer", () => {
+map.on("mouseleave", "buildings", () => {
   map.getCanvas().style.cursor = "";
 });
 
@@ -178,15 +136,14 @@ function ensureClose(id) {
 }
 
 function toggleMapStyle() {
-  console.log("testing toggle");
-  if (style == "default") {
-    map.setStyle(satelliteStyle);
+  if (currentStyle == 0) {
+    map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
     document.getElementById("style-toggle").innerHTML = "Default View";
-    style = "satellite";
+    currentStyle = 1;
   } else {
-    map.setStyle(defaultStyle);
+    map.setLayoutProperty("mapbox-satellite", "visibility", "none");
     document.getElementById("style-toggle").innerHTML = "Satellite View";
-    style = "default";
+    currentStyle = 0;
   }
 }
 
