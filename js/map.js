@@ -45,17 +45,34 @@ map.on("load", () => {
 
   map.addLayer({
     id: "buildings-layer",
-    type: "circle",
+    // type: "circle",
+    type: "symbol",
     source: "buildings",
-    paint: {
-      "circle-radius": 8,
-      "circle-stroke-width": 2,
-      "circle-color": "red",
-      "circle-stroke-color": "white",
+    layout: {
+      visibility: "visible",
+      "text-field": ["to-string", ["get", "name"]],
+      "text-size": 11,
+      "text-radial-offset": -1.5,
+      "text-anchor": "bottom",
+      "text-max-width": 20,
     },
+    // icon: {
+    //   image: "border-dot-13",
+    // },
   });
 });
-
+function bondFeatures(bound, map, event) {
+  // if (map.loaded()) {
+  const bbox = [
+    // based off of pixel width to determine bounds
+    [event.point.x - bound, event.point.y - bound],
+    [event.point.x + bound, event.point.y + bound],
+  ];
+  return map.queryRenderedFeatures(bbox, { layers: ["buildings-layer"] }); // returns Objecct that corresponds with data values under point
+  // bounds are passed in so you can tweak the click radius of the element corresponding with each building.
+  // function to get data features underneath point when an event is passed through
+  // }
+}
 map.on("click", (event) => {
   const features = bondFeatures(_bounds, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
   // ensureClose("right"); // ensures right sidebar collapses
@@ -87,7 +104,7 @@ map.on("click", (event) => {
   }
 });
 
-map.on("click", "buildings", (e) => {
+map.on("click", "buildings-layer", (e) => {
   const constraintZoom = map.getZoom() > flyToZoom ? map.getZoom() : flyToZoom; // if zoom is less than fly too zoom constraint, uses current zoom level
   // notes higher zoom level means more magnifation
   map.flyTo({
@@ -97,11 +114,11 @@ map.on("click", "buildings", (e) => {
   });
 });
 
-map.on("mouseenter", "buildings", () => {
+map.on("mouseenter", "buildings-layer", () => {
   map.getCanvas().style.cursor = "pointer";
 });
 
-map.on("mouseleave", "buildings", () => {
+map.on("mouseleave", "buildings-layer", () => {
   map.getCanvas().style.cursor = "";
 });
 
@@ -158,18 +175,6 @@ function ensureClose(id) {
     classes.push("collapsed");
     elem.className = classes.join(" ");
   }
-}
-
-function bondFeatures(bound, map, event) {
-  // function to get data features underneath point when an event is passed through
-  const bbox = [
-    // based off of pixel width to determine bounds
-    [event.point.x - bound, event.point.y - bound],
-    [event.point.x + bound, event.point.y + bound],
-  ];
-
-  return map.queryRenderedFeatures(bbox, { layers: ["buildings"] }); // returns Objecct that corresponds with data values under point
-  // bounds are passed in so you can tweak the click radius of the element corresponding with each building.
 }
 
 function toggleMapStyle() {
