@@ -36,29 +36,29 @@ map.on("click", (event) => {
   // ensureClose("right"); // ensures right sidebar collapses
 
   if (features.length == 1) {
-    // // will trigger if any features exist under point and open side bar.
-    // // TODO Consideration:  Make this similar to the left side bar where the html is static on the index.html
-    // // Populates building data as html
-    // const popupHtml = `
-    // <div><img src="images/building-images/${features[0].properties.buildingNo}.jpg" alt="Image of ${features[0].properties.name}"></img></div>
-    // <div><strong>Building No: </strong>${features[0].properties.buildingNo}</div>
-    // <div><strong>Ft<sup>2</sup>: </strong>${features[0].properties.squareFt}</div>
-    // <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank"><strong>AIM Asset View</strong></a></div>
-    // `;
-    // document.getElementById("right-sidebar-body-inserter").innerHTML =
-    //   popupHtml; // inserts into sidebar
-    // sets buildings name in top content area
-    // toggleSidebar("right"); // toggles sidebar should close and reopen as new building if mousedowning new building
-    document.getElementById("building-header").innerHTML =
-      features[0].properties.name;
+    // will trigger if any features exist under point and open side bar.
+    // TODO Consideration:  Make this similar to the left side bar where the html is static on the index.html
+    // Populates building data as html
+    const contextBox = `
+    <div><h2 class="header">${features[0].properties.name}</h2></div>
+    <div class="smalltext">
+    <div><strong>Building No: </strong>${features[0].properties.buildingNo}</div>
+    <div><strong>Ft<sup>2</sup>: </strong>${features[0].properties.squareFt}</div>
+    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank"><strong>AIM Asset View</strong></a></div>
+    </div>
+    `;
+    document.getElementsByClassName("context-box")[0].innerHTML = contextBox; // inserts into sidebar
     document.getElementsByClassName("fs-logo-building")[0].src = `
     images/building-images/${features[0].properties.buildingNo}.jpg
     `;
     console.log(features[0].properties);
   } else {
-    document.getElementById("building-header").innerHTML = "Select a Building";
     document.getElementsByClassName("fs-logo-building")[0].src =
       "./images/branding/inverted_fs.png";
+    const noContext = `
+      <div><h2>Select a Building or Feature</h2</div>
+    `;
+    document.getElementsByClassName("context-box")[0].innerHTML = noContext; // inserts into sidebar
   }
 });
 
@@ -81,7 +81,8 @@ map.on("mouseleave", "buildings", () => {
 });
 
 map.on("mousemove", (event) => {
-  document.getElementById("coords").innerHTML = JSON.stringify(event.point);
+  document.getElementById("coordsx").innerHTML = JSON.stringify(event.point.x);
+  document.getElementById("coordsy").innerHTML = JSON.stringify(event.point.y);
   document.getElementById("mlat").innerHTML = JSON.stringify(event.lngLat.lat);
   document.getElementById("mlng").innerHTML = JSON.stringify(event.lngLat.lng);
   document.getElementById("clat").innerHTML = map.getCenter().lat;

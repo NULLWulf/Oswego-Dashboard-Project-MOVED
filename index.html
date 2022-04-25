@@ -38,8 +38,11 @@
           />
         </div>
         <div class="left-sidebar-body">
-          <h2 id="building-header" class="header">Select a Building</h2>
-          <hr />
+          <div class="context-box">
+            <div>
+              <h2 class="header">Select a Building or Feature</h2>
+            </div>
+          </div>
           <div class="dropdown">
             <select id="region-dropwn" onchange="flyToId(this.value)">
               <option value="none" selected disabled hidden>
@@ -58,9 +61,10 @@
             </select>
           </div>
           <hr />
-          <h2 class="header">Live Map Data</h2>
-          <div class="live-map-info smalltext">
-            <div><strong>Coords:</strong> <span id="coords"></span></div>
+          <div class="live-map-info context-box smalltext">
+            <div><h2 class="header">Live Map Data</h2></div>
+            <div><strong>Coords X:</strong> <span id="coordsx"></span></div>
+            <div><strong>Coords Y:</strong> <span id="coordsy"></span></div>
             <div><strong>Mouse Lng:</strong> <span id="mlng"></span></div>
             <div><strong>Mouse Lat:</strong> <span id="mlat"></span></div>
             <div><strong>Center Lng</strong> <span id="clng"></span></div>

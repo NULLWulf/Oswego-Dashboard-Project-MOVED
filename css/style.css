@@ -145,3 +145,13 @@ h2 {
 .fa-solid {
   font-size: 30px;
 }
+
+.context-box {
+  margin: 5%;
+  padding: 0.5em;
+  border: 10px solid #355e3b;
+}
+
+.header {
+  text-align: center;
+}
