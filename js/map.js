@@ -49,9 +49,9 @@ map.on("click", (event) => {
   } else {
     document.getElementsByClassName("fs-logo-building")[0].src =
       "./images/branding/inverted_fs.png";
-    document.getElementsByClassName(
-      "context-box"
-    )[0].innerHTML = `<div><h2>Select a Building or Feature</h2</div>`; // inserts into sidebar
+    document.getElementById(
+      "building-context"
+    ).innerHTML = `<div><h2>Select a Building or Feature</h2</div>`; // inserts into sidebar
   }
 });
 
@@ -208,7 +208,7 @@ function populateBuildingContext(assetData, property) {
 
   let assetsAvailable = assetData ? assetData.length : "No Assets Available";
 
-  document.getElementsByClassName("context-box")[0].innerHTML = `
+  document.getElementById("building-context").innerHTML = `
     <div><h2 class="header">${property.name}</h2></div>
     <div class="smalltext">
     <div><strong>Building No: </strong>${buildingNo}</div>
@@ -223,7 +223,7 @@ function populateBuildingContext(assetData, property) {
 
   if (assetData) {
     let select = document.createElement("select");
-    select.className = "assetDropdown";
+    select.id = "asset-dropdown";
 
     for (let i = 0; i < assetData.length; i++) {
       let assetOption =
@@ -243,13 +243,11 @@ function populateBuildingContext(assetData, property) {
     select.addEventListener("change", () => {
       getAssetFromDropDown(select.value);
     });
-    document.getElementsByClassName("context-box")[0].appendChild(select);
+    document.getElementById("building-context").appendChild(select);
   } else {
     let errorMessageAsset = document.createElement("div");
     errorMessageAsset.innerHTML = `<div><h3>Error Retrieving Building Data</h3</div>`;
-    document
-      .getElementsByClassName("context-box")[0]
-      .appendChild(errorMessageAsset);
+    document.getElementById("building-context").appendChild(errorMessageAsset);
   }
 }
 
@@ -265,7 +263,7 @@ function getAssetFromDropDown(assetId) {
 }
 
 function populateAssetContext(asset) {
-  document.getElementsByClassName("selected-asset")[0].innerHTML = "Hi";
+  document.getElementById("asset-context").innerHTML = "Hi";
 
   let newHtml = `
       <div><h3 class="header">Asset: ${asset.id}</h3></div>

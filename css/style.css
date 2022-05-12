@@ -141,7 +141,7 @@ h2 {
   flex-direction: column;
 }
 
-.assetDropdown {
+#asset-dropdown {
   display: inline;
   width: -webkit-fill-available;
 }
