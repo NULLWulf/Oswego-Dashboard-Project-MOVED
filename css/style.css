@@ -141,6 +141,11 @@ h2 {
   flex-direction: column;
 }
 
+.assetDropdown {
+  display: inline;
+  width: -webkit-fill-available;
+}
+
 .fa-solid {
   font-size: 30px;
 }
@@ -153,4 +158,8 @@ h2 {
 
 .header {
   text-align: center;
+}
+
+#dialog {
+  z-index: 5;
 }

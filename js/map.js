@@ -5,7 +5,6 @@ const _bounds = 0.5;
 const flyToZoom = 18; // maximum zoom level after FlyToZoom is initialized when interacting with building icons
 const defaultStyle = "mapbox://styles/ndwolf1991/cl1f5gcur004t15mf6m1dt47j";
 const satelliteStyle = "mapbox://styles/mapbox/satellite-v9";
-
 let currentStyle = 0;
 
 const map = new mapboxgl.Map({
@@ -14,7 +13,7 @@ const map = new mapboxgl.Map({
   style: defaultStyle, // new style url
   center: [-76.543134, 43.453054], // starting position [lng, lat]
   zoom: 15.65, // initial zoom start
-  bearing: -37.25, // slightly off north to show majority of campus
+  bearing: -37.25, // slightly off north to show the majority of campus
   pitch: 0, // directly overhead
   // maxBounds: _mapPanBound,
 });
@@ -33,41 +32,35 @@ function bondFeatures(bound, map, event) {
 }
 map.on("click", (event) => {
   const features = bondFeatures(_bounds, map, event); // attempts to get features within a certain radial point, tweak _Bounds to make radius more liberal/conservative
-  // ensureClose("right"); // ensures right sidebar collapses
-
-  if (features.length == 1) {
-    // will trigger if any features exist under point and open side bar.
-    // TODO Consideration:  Make this similar to the left side bar where the html is static on the index.html
-    // Populates building data as html
-    const contextBox = `
-    <div><h2 class="header">${features[0].properties.name}</h2></div>
-    <div class="smalltext">
-    <div><strong>Building No: </strong>${features[0].properties.buildingNo}</div>
-    <div><strong>Ft<sup>2</sup>: </strong>${features[0].properties.squareFt}</div>
-    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${features[0].properties.assetID}" target="_blank"><strong>AIM Asset View</strong></a></div>
-    </div>
-    `;
-    document.getElementsByClassName("context-box")[0].innerHTML = contextBox; // inserts into sidebar
-    document.getElementsByClassName("fs-logo-building")[0].src = `
-    images/building-images/${features[0].properties.buildingNo}.jpg
-    `;
-    console.log(features[0].properties);
+  let currentBuilding = features[0].properties.buildingNo;
+  if (features.length === 1) {
+    fetch(`/assets/property/${currentBuilding}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((assetDataJson) => {
+        console.log("Fetch Successful");
+        populateBuildingContext(assetDataJson, features[0].properties);
+      })
+      .catch((err) => {
+        console.log("Fetch problem: " + err.message);
+        populateBuildingContext(null, features[0].properties);
+      });
   } else {
     document.getElementsByClassName("fs-logo-building")[0].src =
       "./images/branding/inverted_fs.png";
-    const noContext = `
-      <div><h2>Select a Building or Feature</h2</div>
-    `;
-    document.getElementsByClassName("context-box")[0].innerHTML = noContext; // inserts into sidebar
+    document.getElementsByClassName(
+      "context-box"
+    )[0].innerHTML = `<div><h2>Select a Building or Feature</h2</div>`; // inserts into sidebar
   }
 });
 
 map.on("click", "buildings", (e) => {
   const constraintZoom = map.getZoom() > flyToZoom ? map.getZoom() : flyToZoom; // if zoom is less than fly too zoom constraint, uses current zoom level
-  // notes higher zoom level means more magnifation
+  // notes higher zoom level means more magnification
   map.flyTo({
     center: e.features[0].geometry.coordinates, // centers map based on exact point in geoJson array
-    zoom: constraintZoom, // new constrainted zoom, since this is an object data value, variable needs to be declares up top
+    zoom: constraintZoom, // new constrained zoom, since this is an object data value, variable needs to be declares up top
     speed: 0.3,
   });
 });
@@ -131,7 +124,7 @@ function ensureClose(id) {
 }
 
 function toggleMapStyle() {
-  if (currentStyle == 0) {
+  if (currentStyle === 0) {
     map.setLayoutProperty("mapbox-satellite", "visibility", "visible");
     document.getElementById("style-toggle").innerHTML = "Default View";
     currentStyle = 1;
@@ -209,3 +202,80 @@ const nav = new mapboxgl.NavigationControl({
   compass: true,
 });
 map.addControl(nav, "bottom-left");
+
+function populateBuildingContext(assetData, property) {
+  const buildingNo = property.buildingNo;
+
+  let assetsAvailable = assetData ? assetData.length : "No Assets Available";
+
+  document.getElementsByClassName("context-box")[0].innerHTML = `
+    <div><h2 class="header">${property.name}</h2></div>
+    <div class="smalltext">
+    <div><strong>Building No: </strong>${buildingNo}</div>
+    <div><strong>Ft<sup>2</sup>: </strong>${property.squareFt}</div>
+    <div><strong>Asset Count: </strong>${assetsAvailable}</div>
+    <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${property.assetID}" target="_blank"><strong>AIM Asset Property/strong></a></div>
+    `;
+
+  document.getElementsByClassName("fs-logo-building")[0].src = `
+    images/building-images/${buildingNo}.jpg
+    `;
+
+  if (assetData) {
+    let select = document.createElement("select");
+    select.className = "assetDropdown";
+
+    for (let i = 0; i < assetData.length; i++) {
+      let assetOption =
+        assetData[i].id +
+        " : " +
+        assetData[i].description +
+        " : " +
+        assetData[i].assetType +
+        " : " +
+        assetData[i].assetGroup;
+      let assetElement = document.createElement("option");
+      assetElement.textContent = assetOption;
+      assetElement.value = assetData[i].id;
+      select.appendChild(assetElement);
+    }
+
+    select.addEventListener("change", () => {
+      getAssetFromDropDown(select.value);
+    });
+    document.getElementsByClassName("context-box")[0].appendChild(select);
+  } else {
+    let errorMessageAsset = document.createElement("div");
+    errorMessageAsset.innerHTML = `<div><h3>Error Retrieving Building Data</h3</div>`;
+    document
+      .getElementsByClassName("context-box")[0]
+      .appendChild(errorMessageAsset);
+  }
+}
+
+function getAssetFromDropDown(assetId) {
+  fetch(`/assets/${assetId}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      populateAssetContext(data);
+    });
+}
+
+function populateAssetContext(asset) {
+  document.getElementsByClassName("selected-asset")[0].innerHTML = "Hi";
+
+  let newHtml = `
+      <div><h3 class="header">Asset: ${asset.id}</h3></div>
+      <div class="smalltext">
+      <div><strong>Group: </strong>${asset.assetGroup}</div>
+      <div><strong>Type: </strong>${asset.assetType}</div>
+      <div><strong>Description: </strong>${asset.description}</div>
+      <div><strong>Facility: </strong>${asset.facility}</div>
+      <div><strong>Location: </strong>${asset.location}</div>
+      <div><strong>Status: </strong>${asset.status}</div>
+      <div><a href="https://aim.sucf.suny.edu/fmax/screen/MASTER_ASSET_VIEW?assetTag=${asset.id}" target="_blank"><strong>AIM Asset View</strong></a></div>
+      `;
+}

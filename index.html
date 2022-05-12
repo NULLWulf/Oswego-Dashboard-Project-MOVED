@@ -22,12 +22,8 @@
     <link href="./css/style.css" rel="stylesheet" />
   </head>
   <body>
-    <script>
-      if (screen.width <= 700) {
-        window.location = "mobile.html";
-      }
-    </script>
     <div id="map"></div>
+
     <div id="left" class="sidebar flex-center left collapsed">
       <div class="sidebar-content">
         <div class="sidebar-content-top">
@@ -42,6 +38,7 @@
             <div>
               <h2 class="header">Select a Building or Feature</h2>
             </div>
+            <div id="selected-asset"></div>
           </div>
           <div class="dropdown">
             <select id="region-dropwn" onchange="flyToId(this.value)">
@@ -62,7 +59,7 @@
           </div>
           <hr />
           <div class="live-map-info context-box smalltext">
-            <div><h2                                                                                                                                                                    class="header">Live Map Data</h2></div>
+            <div><h2 class="header">Live Map Data</h2></div>
             <div><strong>Coords X:</strong> <span id="coordsx"></span></div>
             <div><strong>Coords Y:</strong> <span id="coordsy"></span></div>
             <div><strong>Mouse Lng:</strong> <span id="mlng"></span></div>
@@ -85,6 +82,7 @@
         </div>
       </div>
     </div>
+
     <script type="text/javascript" src="./js/map.js"></script>
   </body>
 </html>
